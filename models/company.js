@@ -15,6 +15,25 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Company.associate = function(models) {
     // associations can be defined here
+    Company.belongsTo(models.Role,{
+      foreignKey: 'role_id'
+    });
+    Company.hasMany(models.Selection,{
+      foreignKey: 'company_id',
+      onDelete: 'CASCADE'
+    });
+    Company.hasMany(models.CompanyUser,{
+      foreignKey: 'company_id',
+      onDelete: 'CASCADE'
+    });
+    Company.hasMany(models.Ping,{
+      foreignKey: 'company_id',
+      onDelete: 'CASCADE'
+    });
+    Company.hasMany(models.Offer,{
+      foreignKey: 'company_id',
+      onDelete: 'CASCADE'
+    });
   };
   return Company;
 };

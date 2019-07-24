@@ -41,6 +41,13 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
+      role_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Roles',
+          key: 'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

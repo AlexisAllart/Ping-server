@@ -6,6 +6,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Status.associate = function(models) {
     // associations can be defined here
+    Status.hasMany(models.Ping,{
+      foreignKey: 'status_id'
+    })
   };
   return Status;
 };

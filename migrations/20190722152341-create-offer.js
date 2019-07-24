@@ -14,19 +14,16 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
-      contractType: {
-        type: Sequelize.STRING
-      },
       salary: {
         type: Sequelize.FLOAT
       },
       addressNumber: {
         type: Sequelize.STRING
       },
-      addressStree: {
+      addressStreet: {
         type: Sequelize.STRING
       },
-      adressCity: {
+      addressCity: {
         type: Sequelize.STRING
       },
       addressZIPCode: {
@@ -37,6 +34,49 @@ module.exports = {
       },
       longitude: {
         type: Sequelize.FLOAT
+      },
+      company_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Companies',
+          key: 'id',
+          onDelete: 'CASCADE'
+        }
+      },
+      contractType_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'ContractTypes',
+          key: 'id'
+        }
+      },
+      companyUser_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'CompanyUsers',
+          key: 'id'
+        }
+      },
+      keyWordThree_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'KeyWords',
+          key: 'id'
+        }
+      },
+      keyWordTwo_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'KeyWords',
+          key: 'id'
+        }
+      },
+      keyWordOne_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'KeyWords',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

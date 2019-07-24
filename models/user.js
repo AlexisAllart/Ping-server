@@ -15,6 +15,23 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function(models) {
     // associations can be defined here
+    User.belongsTo(models.KeyWords,{
+      foreignKey: 'keyWordOne_id'
+    });
+    User.belongsTo(models.KeyWords,{
+      foreignKey: 'keyWordTwo_id'
+    });
+    User.belongsTo(models.KeyWords,{
+      foreignKey: 'keyWordThree_id'
+    });
+    User.hasMany(models.Ping,{
+      foreignKey: 'user_id',
+      onDelete: 'CASCADE'
+    });
+    User.hasMany(models.Selection,{
+      foreignKey: 'user_id',
+      onDelete: 'CASCADE'
+    });
   };
   return User;
 };

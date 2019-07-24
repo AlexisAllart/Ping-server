@@ -41,6 +41,27 @@ module.exports = {
       available: {
         type: Sequelize.BOOLEAN
       },
+      keyWordOne_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'KeyWords',
+          key: 'id'
+        }
+      },
+      keyWordTwo_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'KeyWords',
+          key: 'id'
+        }
+      },
+      keyWordThree_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'KeyWords',
+          key: 'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
