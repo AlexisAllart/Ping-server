@@ -15,13 +15,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function(models) {
     // associations can be defined here
-    User.belongsTo(models.KeyWords,{
+    User.belongsTo(models.KeyWord,{
       foreignKey: 'keyWordOne_id'
     });
-    User.belongsTo(models.KeyWords,{
+    User.belongsTo(models.KeyWord,{
       foreignKey: 'keyWordTwo_id'
     });
-    User.belongsTo(models.KeyWords,{
+    User.belongsTo(models.KeyWord,{
       foreignKey: 'keyWordThree_id'
     });
     User.hasMany(models.Ping,{

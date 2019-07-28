@@ -13,13 +13,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Offer.associate = function(models) {
     // associations can be defined here
-    Offer.belongsTo(models.KeyWords,{
+    Offer.belongsTo(models.KeyWord,{
       foreignKey: 'keyWordOne_id'
     });
-    Offer.belongsTo(models.KeyWords,{
+    Offer.belongsTo(models.KeyWord,{
       foreignKey: 'keyWordTwo_id'
     });
-    Offer.belongsTo(models.KeyWords,{
+    Offer.belongsTo(models.KeyWord,{
       foreignKey: 'keyWordThree_id'
     });
     Offer.belongsTo(models.CompanyUser,{

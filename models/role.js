@@ -8,9 +8,6 @@ module.exports = (sequelize, DataTypes) => {
     Role.hasMany(models.CompanyUser,{
       foreignKey: 'role_id'
     });
-    Role.hasMany(models.Company,{
-      foreignKey: 'role_id'
-    });
   };
   return Role;
 };
