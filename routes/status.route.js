@@ -21,7 +21,7 @@ const checkToken = (req, res, next) => {
 // BEGIN
 const status_controller=require('../controllers/status.controller');
 
-router.get('/list', checkToken, status_controller.status_list);
+router.get('/list', status_controller.status_list);
 // Les statuses doivent déjà être présents dans la db, on ne peut pas les créer, les modifier ou les supprimer
 // router.post('/create', checkToken, status_controller.status_create);
 // router.put('/edit/:id', checkToken, status_controller.status_edit);

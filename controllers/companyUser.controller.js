@@ -41,16 +41,16 @@ exports.companyUser_login = (req,res)=>{
             email: req.body.email
         }
     })
-    .then(data=>{
-        if(!data){
+    .then(companyUser=>{
+        if(!companyUser){
             res.setHeader('Content-type','application/json ; charset=utf-8');
             res.json({'message':'Login = KO : User not found'});
             res.status(400);
             res.end();
         }
-        bcrypt.compare(req.body.password, data.password, (err,result)=>{
+        bcrypt.compare(req.body.password, companyUser.password, (err,result)=>{
             if (result) {
-                jwt.sign({data}, 'secureKey', {expiresIn: '1h'}, (err, token)=>{
+                jwt.sign({companyUser}, 'secureKey', {expiresIn: '1h'}, (err, token)=>{
                     res.setHeader('Content-type','application/json ; charset=utf-8');
                     if(err) {
                         console.log(err);
@@ -146,7 +146,7 @@ exports.companyUser_details = (req,res)=>{
     });
 };
 
-// A VERIFIER EN DETAIL !
+// A VERIFIER EN DETAIL ! PROBLEME DE CHECK SUR PASSWORD !!!!!!!!!!!!!!!!!
 // BEGIN CREATE (Protected by req.body.companyEmail/req.body.companyPassword)
 exports.companyUser_create = (req,res)=>{
     bcrypt.hash(req.body.password, saltRounds, (err, hash)=> {

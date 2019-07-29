@@ -34,3 +34,4 @@ exports.contractType_list = (req,res)=>{
         res.end();
     });
 }
+// END

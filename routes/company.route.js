@@ -33,7 +33,6 @@ const upload = multer({storage: storage});
 // BEGIN
 const company_controller=require('../controllers/company.controller');
 
-router.post('/login', company_controller.company_login);
 router.get('/list', company_controller.company_list);
 router.get('/details/:id', company_controller.company_details);
 // Comment protéger la création de nouvelles entreprises ?

@@ -36,7 +36,7 @@ const user_controller=require('../controllers/user.controller');
 router.post('/login', user_controller.user_login);
 router.get('/list', checkToken, user_controller.user_list);
 router.get('/details/:id', checkToken, user_controller.user_details);
-router.post('/create', checkToken, user_controller.user_create);
+router.post('/create', user_controller.user_create);
 router.put('/edit/:id', checkToken, user_controller.user_edit);
 router.put('/picture/:id', checkToken, upload.single('picture'), user_controller.user_picture);
 router.put('/cv/:id', checkToken, upload.single('cv'), user_controller.user_picture);

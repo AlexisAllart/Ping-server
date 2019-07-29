@@ -41,16 +41,16 @@ exports.user_login = (req,res)=>{
             email: req.body.email
         }
     })
-    .then(data=>{
-        if(!data){
+    .then(user=>{
+        if(!user){
             res.setHeader('Content-type','application/json ; charset=utf-8');
             res.json({'message':'Login = KO : User not found'});
             res.status(400);
             res.end();
         }
-        bcrypt.compare(req.body.password, data.password, (err,result)=>{
+        bcrypt.compare(req.body.password, user.password, (err,result)=>{
             if (result) {
-                jwt.sign({data}, 'secureKey', {expiresIn: '1h'}, (err, token)=>{
+                jwt.sign({user}, 'secureKey', {expiresIn: '1h'}, (err, token)=>{
                     res.setHeader('Content-type','application/json ; charset=utf-8');
                     if(err) {
                         console.log(err);
