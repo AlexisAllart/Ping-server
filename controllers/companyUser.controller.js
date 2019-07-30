@@ -146,65 +146,61 @@ exports.companyUser_details = (req,res)=>{
     });
 };
 
-// A VERIFIER EN DETAIL ! PROBLEME DE CHECK SUR PASSWORD !!!!!!!!!!!!!!!!!
+// A VERIFIER EN DETAIL !
 // BEGIN CREATE (Protected by req.body.companyEmail/req.body.companyPassword)
-exports.companyUser_create = (req,res)=>{
-    bcrypt.hash(req.body.password, saltRounds, (err, hash)=> {
+exports.companyUser_create = (req, res) => {
+    bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
         let companyList;
         db.Company.findAll({})
-        .then(data=>{
-            companyList=data;
-        })
-        .catch(error=>{
-            console.log(error);
-        });
-        
-        bcrypt.compare(req.body.companyPassword, companyList.password, (err,result)=>{
-            if (result) {
-                if(err) {
-                    console.log(err);
-                }
-                let matchFound=false;
-                for (let i=0;i<companyList.length;i++) {
-                    if (companyList.email==req.body.companyEmail) {
-                        matchFound=true;
+            .then(data => {
+                companyList = data;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        let matchFound = false;
+        for (let i = 0; i < companyList.length; i++) {
+            if (companyList.email == req.body.companyEmail) {
+                bcrypt.compare(req.body.companyPassword, companyList.password, (err, result) => {
+                    if (result) {
+                        if (err) {
+                            res.setHeader('Content-type', 'application/json ; charset=utf-8');
+                            console.log(err);
+                            res.status(400);
+                            res.end();
+                        }
+                        matchFound = true;
                         break;
                     }
-                }
-                if (matchFound) {
-                    db.CompanyUser.create({
-                        email:req.body.email,
-                        name:req.body.name,
-                        password:hash,
-                        company_id:companyList.id,
-                        role_id:2
-                    })
-                    .then(data=>{
-                        res.setHeader('Content-type','application/json ; charset=utf-8');
+                });
+            }
+            if (matchFound) {
+                db.CompanyUser.create({
+                    email: req.body.email,
+                    name: req.body.name,
+                    password: hash,
+                    company_id: companyList.id,
+                    role_id: 2
+                })
+                    .then(data => {
+                        res.setHeader('Content-type', 'application/json ; charset=utf-8');
                         res.json(data);
                         res.status(200);
                         res.end();
                     })
-                    .catch(error=>{
-                        res.setHeader('Content-type','application/json ; charset=utf-8');
+                    .catch(error => {
+                        res.setHeader('Content-type', 'application/json ; charset=utf-8');
                         res.json(error);
                         res.status(400).send('400 ERROR');
                         res.end();
                     });
-                }
-                else {
-                    res.setHeader('Content-type','application/json ; charset=utf-8');
-                    res.sendStatus(403).send('ERROR: ACCESS DENIED');
-                    res.end();
-                }
             }
             else {
-                res.setHeader('Content-type','application/json ; charset=utf-8');
-                res.json({'message':'Account creation = KO : Password does not match'});
-                res.status(400);
+                res.setHeader('Content-type', 'application/json ; charset=utf-8');
+                res.sendStatus(403).send('ERROR: ACCESS DENIED');
                 res.end();
             }
-        });
+        }
     });
 };
 
