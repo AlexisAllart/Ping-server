@@ -83,7 +83,7 @@ exports.companyUser_list = (req,res)=>{
             if(authorizedData.companyUser.id) {
                 db.CompanyUser.findAll({
                     where:{
-                        'company_id': authorizedData.company_id
+                        'company_id': authorizedData.companyUser.company_id
                     }
                 })
                 .then(data=>{
@@ -108,7 +108,7 @@ exports.companyUser_list = (req,res)=>{
     });
 };
 
-// BEGIN DETAILS (Protected - only for account owner or companyUsers with role_id=1)
+// BEGIN DETAILS (Protected - only for account owner or companyUsers with role_id=1 with matching company_id)
 exports.companyUser_details = (req,res)=>{
     jwt.verify(req.token, 'secureKey', (err, authorizedData) => {
         if(err){
@@ -121,7 +121,7 @@ exports.companyUser_details = (req,res)=>{
                 db.CompanyUser.findOne({
                     where:{
                         'id': req.params.id,
-                        'company_id' : (authorizedData.companyUser.company_id || authorizedData.company.id)
+                        'company_id' : (authorizedData.companyUser.company_id)
                     }
                 })
                 .then(data=>{
@@ -146,42 +146,47 @@ exports.companyUser_details = (req,res)=>{
     });
 };
 
-// A VERIFIER EN DETAIL !
 // BEGIN CREATE (Protected by req.body.companyEmail/req.body.companyPassword)
 exports.companyUser_create = (req, res) => {
-    bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-        let companyList;
-        db.Company.findAll({})
-            .then(data => {
-                companyList = data;
-            })
-            .catch(error => {
-                console.log(error);
-            });
-        let matchFound = false;
-        for (let i = 0; i < companyList.length; i++) {
-            if (companyList.email == req.body.companyEmail) {
-                bcrypt.compare(req.body.companyPassword, companyList.password, (err, result) => {
-                    if (result) {
-                        if (err) {
-                            res.setHeader('Content-type', 'application/json ; charset=utf-8');
-                            console.log(err);
-                            res.status(400);
-                            res.end();
-                        }
-                        matchFound = true;
-                        break;
-                    }
-                });
+    db.Company.findOne({
+        where:{
+            email: req.body.companyEmail
+        }
+    })
+    .then(company=>{
+        if(!company){
+            res.setHeader('Content-type','application/json ; charset=utf-8');
+            res.json({'message':'Login = KO : Company not found'});
+            res.status(400);
+            res.end();
+        }
+        let role=2;
+        db.CompanyUser.count({
+            where:{
+                company_id: company.id
             }
-            if (matchFound) {
-                db.CompanyUser.create({
-                    email: req.body.email,
-                    name: req.body.name,
-                    password: hash,
-                    company_id: companyList.id,
-                    role_id: 2
-                })
+        })
+        .then(int=>{
+            if (int==0) {
+                role=1;
+            }
+        })
+        .catch(error=>{
+            res.setHeader('Content-type','application/json ; charset=utf-8');
+            res.json(error);
+            res.status(400).send('400 Error');
+            res.end();
+        });
+        bcrypt.compare(req.body.companyPassword, company.password, (err,result)=>{
+            if (result) {
+                bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+                    db.CompanyUser.create({
+                        email: req.body.email,
+                        name: req.body.name,
+                        password: hash,
+                        company_id: company.id,
+                        role_id: role
+                    })
                     .then(data => {
                         res.setHeader('Content-type', 'application/json ; charset=utf-8');
                         res.json(data);
@@ -194,13 +199,21 @@ exports.companyUser_create = (req, res) => {
                         res.status(400).send('400 ERROR');
                         res.end();
                     });
+                });
             }
             else {
-                res.setHeader('Content-type', 'application/json ; charset=utf-8');
-                res.sendStatus(403).send('ERROR: ACCESS DENIED');
+                res.setHeader('Content-type','application/json ; charset=utf-8');
+                res.json({'message':'Login = KO : Password does not match'});
+                res.status(400);
                 res.end();
             }
-        }
+        });
+    })
+    .catch(error => {
+        res.setHeader('Content-type', 'application/json ; charset=utf-8');
+        res.json(error);
+        res.status(400).send('400 ERROR');
+        res.end();
     });
 };
 
@@ -213,7 +226,7 @@ exports.companyUser_edit = (req,res)=>{
             res.end();
         }
         else {
-            if(authorizedData.companyUser.id==req.params.id || authorizedData.companyUser.role_id==1 && authorizedData.companyUser.company_id==req.body.company_id) {
+            if(authorizedData.companyUser.role_id==1 && authorizedData.companyUser.company_id==req.body.company_id || authorizedData.companyUser.id == req.params.id) {
                 bcrypt.hash(req.body.password, saltRounds, (err, hash)=> {
                     db.CompanyUser.update({
                         email:req.body.email,
@@ -221,7 +234,8 @@ exports.companyUser_edit = (req,res)=>{
                         password:hash,
                         },{
                         where:{
-                            'id':req.params.id
+                            'id':req.params.id,
+                            'company_id' : authorizedData.companyUser.company_id
                         }
                     })
                     .then(data=>{
@@ -236,15 +250,6 @@ exports.companyUser_edit = (req,res)=>{
                         res.status(400).send('400 ERROR');
                         res.end();
                     });
-                    if(authorizedData.companyUser.role_id==1 && authorizedData.companyUser.company_id==req.body.company_id) {
-                        db.CompanyUser.update({
-                        role_id:req.body.role_id,
-                        },{
-                        where:{
-                            'id':req.params.id
-                            }
-                        });
-                    }
                 });
             }
             else {
@@ -265,7 +270,7 @@ exports.companyUser_delete = (req,res)=>{
             res.end();
         }
         else {
-            if(authorizedData.companyUser.id==req.params.id || authorizedData.companyUser.role_id==1 && authorizedData.companyUser.company_id==req.body.company_id) {
+            if(authorizedData.companyUser.role_id==1 && authorizedData.companyUser.company_id==req.body.company_id || authorizedData.companyUser.id == req.params.id) {
                 db.CompanyUser.destroy({
                     where:{
                         'id': req.params.id

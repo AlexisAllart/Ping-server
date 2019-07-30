@@ -27,9 +27,9 @@ router.get('/list', checkToken, companyUser_controller.companyUser_list);
 // Seul company_id a accès au profile personnel de chaque companyUser, ainsi que le propriétaire du compte companyUser_id
 router.get('/details/:id', checkToken, companyUser_controller.companyUser_details);
 // Tout utilisateur peut créer un compte companyUser s'il a le name+password d'une company_id
-router.post('/create', checkToken, companyUser_controller.companyUser_create);
-// Seul le companyUser_id et le company_id associé peuvent modifier un compte companyUser
+router.post('/create', companyUser_controller.companyUser_create);
+// Seul le companyUser_id et le company_id associé peuvent modifier un compte companyUser (note : le role ne peut pas être modifié à aucun moment)
 router.put('/edit/:id', checkToken, companyUser_controller.companyUser_edit);
-router.delete('/delete/:id', companyUser_controller.companyUser_delete);
+router.delete('/delete/:id', checkToken, companyUser_controller.companyUser_delete);
 
 module.exports=router;
