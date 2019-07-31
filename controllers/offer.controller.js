@@ -109,7 +109,7 @@ exports.offer_edit = (req,res)=>{
             res.end();
         }
         else {
-            if(authorizedData.company.id==req.params.company_id) {
+            if(authorizedData.companyUser.company_id==req.body.offerCompany_id) {
                 db.Offer.update({
                     addressCity:req.body.addressCity,
                     addressNumber:req.body.addressNumber,
@@ -162,7 +162,7 @@ exports.offer_delete = (req,res)=>{
             res.end();
         }
         else {
-            if(authorizedData.companyUser.company.id==req.body.company_id) {
+            if(authorizedData.companyUser.company_id==req.body.offerCompany_id) {
                 db.Offer.destroy({
                     where:{
                         'id': req.params.id
