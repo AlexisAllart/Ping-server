@@ -1,8 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Selection = sequelize.define('Selection', {
-    null: DataTypes.BOOLEAN
-  }, {});
+  const Selection = sequelize.define('Selection', {}, {});
   Selection.associate = function(models) {
     // associations can be defined here
     Selection.belongsTo(models.Tag,{

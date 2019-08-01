@@ -18,7 +18,7 @@ const checkToken = (req, res, next) => {
 };
 
 // BEGIN
-// BEGIN LIST (Only for CompanyUsers; returns the list of matching company_id pings only)
+// BEGIN LIST (For companyUsers: returns the list of matching company_id pings only; for users: returns the list of matching user_id pings)
 exports.ping_list = (req,res)=>{
     jwt.verify(req.token, 'secureKey', (err, authorizedData) => {
         if(err){
@@ -46,27 +46,10 @@ exports.ping_list = (req,res)=>{
                     res.end();
                 });
             }
-        }
-    });
-};
-
-// BEGIN DETAILS (Only for CompanyUsers with matching company_id, and for users where pings have their user_id)
-exports.ping_details = (req,res)=>{
-    jwt.verify(req.token, 'secureKey', (err, authorizedData) => {
-        if(err){
-            res.setHeader('Content-type','application/json ; charset=utf-8');
-            res.sendStatus(403).send('ERROR: Could not connect to the protected route');
-            res.end();
-        }
-        else {
-            if(true) {
-                db.Ping.findOne({
+            else if(authorizedData.user) {
+                db.Ping.findAll({
                     where:{
-                        'id': req.params.id,
-                        $or:[
-                            {'user_id':authorizedData.user.id},
-                            {'company_id':authorizedData.companyUser.company_id}
-                        ]
+                        'user_id': authorizedData.user.id
                     }
                 })
                 .then(data=>{
@@ -81,6 +64,69 @@ exports.ping_details = (req,res)=>{
                     res.status(400).send('400 ERROR');
                     res.end();
                 });
+            }
+            else {
+                res.setHeader('Content-type','application/json ; charset=utf-8');
+                res.sendStatus(403).send('ERROR: ACCESS DENIED');
+                res.end();
+            }
+        }
+    });
+};
+
+// BEGIN DETAILS (Only for companyUsers with matching company_id, and for users where pings have their user_id)
+exports.ping_details = (req,res)=>{
+    jwt.verify(req.token, 'secureKey', (err, authorizedData) => {
+        if(err){
+            res.setHeader('Content-type','application/json ; charset=utf-8');
+            res.sendStatus(403).send('ERROR: Could not connect to the protected route');
+            res.end();
+        }
+        else {
+            if(authorizedData.companyUser) {
+                db.Ping.findOne({
+                    where:{
+                        'id': req.params.id,
+                        'company_id':authorizedData.companyUser.company_id
+                    }
+                })
+                .then(data=>{
+                    res.setHeader('Content-type','application/json ; charset=utf-8');
+                    res.json(data);
+                    res.status(200);
+                    res.end();
+                })
+                .catch(error=>{
+                    res.setHeader('Content-type','application/json ; charset=utf-8');
+                    res.json(error);
+                    res.status(400).send('400 ERROR');
+                    res.end();
+                });
+            }
+            else if (authorizedData.user) {
+                db.Ping.findOne({
+                    where:{
+                        'id': req.params.id,
+                        'user_id':authorizedData.user.id
+                    }
+                })
+                .then(data=>{
+                    res.setHeader('Content-type','application/json ; charset=utf-8');
+                    res.json(data);
+                    res.status(200);
+                    res.end();
+                })
+                .catch(error=>{
+                    res.setHeader('Content-type','application/json ; charset=utf-8');
+                    res.json(error);
+                    res.status(400).send('400 ERROR');
+                    res.end();
+                });
+            }
+            else {
+                res.setHeader('Content-type','application/json ; charset=utf-8');
+                res.sendStatus(403).send('ERROR: ACCESS DENIED');
+                res.end();
             }
         }
     });
@@ -169,7 +215,7 @@ exports.ping_delete = (req,res)=>{
             res.end();
         }
         else {
-            if(authorizedData.user.id==req.params.user_id) {
+            if(authorizedData.user.id==req.params.id) {
                 db.Ping.destroy({
                     where:{
                         'id': req.params.id

@@ -18,35 +18,19 @@ const checkToken = (req, res, next) => {
 };
 
 // BEGIN
-// BEGIN LIST (Protected - only for companyUsers & company)
+// BEGIN LIST (Public)
 exports.tag_list = (req,res)=>{
-    jwt.verify(req.token, 'secureKey', (err, authorizedData) => {
-        if(err){
-            res.setHeader('Content-type','application/json ; charset=utf-8');
-            res.sendStatus(403).send('ERROR: Could not connect to the protected route');
-            res.end();
-        }
-        else {
-            if(authorizedData.companyUser.id || authorizedData.company.id) {
-                db.Tag.findAll({})
-                .then(data=>{
-                    res.setHeader('Content-type','application/json ; charset=utf-8');
-                    res.json(data);
-                    res.status(200);
-                    res.end();
-                })
-                .catch(error=>{
-                    res.setHeader('Content-type','application/json ; charset=utf-8');
-                    res.json(error);
-                    res.status(400).send('400 ERROR');
-                    res.end();
-                });
-            }
-            else {
-                res.setHeader('Content-type','application/json ; charset=utf-8');
-                res.sendStatus(403).send('403 - ACCESS DENIED');
-                res.end();
-            }
-        }
+    db.Tag.findAll({})
+    .then(data=>{
+        res.setHeader('Content-type','application/json ; charset=utf-8');
+        res.json(data);
+        res.status(200);
+        res.end();
+    })
+    .catch(error=>{
+        res.setHeader('Content-type','application/json ; charset=utf-8');
+        res.json(error);
+        res.status(400).send('400 ERROR');
+        res.end();
     });
 };

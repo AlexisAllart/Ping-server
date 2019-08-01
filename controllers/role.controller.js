@@ -27,7 +27,7 @@ exports.role_list = (req,res)=>{
             res.end();
         }
         else {
-            if(authorizedData.companyUser.id || authorizedData.company.id) {
+            if(authorizedData.companyUser) {
                 db.Role.findAll({})
                 .then(data=>{
                     res.setHeader('Content-type','application/json ; charset=utf-8');
