@@ -39,7 +39,7 @@ router.get('/details/:id', checkToken, user_controller.user_details);
 router.post('/create', user_controller.user_create);
 router.put('/edit/:id', checkToken, user_controller.user_edit);
 router.put('/picture/:id', checkToken, upload.single('picture'), user_controller.user_picture);
-router.put('/cv/:id', checkToken, upload.single('cv'), user_controller.user_picture);
+router.put('/cv/:id', checkToken, upload.single('cv'), user_controller.user_cv);
 router.delete('/delete/:id', checkToken, user_controller.user_delete);
 
 module.exports=router;
