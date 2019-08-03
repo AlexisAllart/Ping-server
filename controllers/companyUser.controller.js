@@ -188,13 +188,13 @@ exports.companyUser_create = (req, res) => {
                         role_id: role
                     })
                     .then(data => {
-                        res.setHeader('Content-type', 'application/json ; charset=utf-8');
+                        res.setHeader('Content-type','application/json ; charset=utf-8');
                         res.json(data);
                         res.status(200);
                         res.end();
                     })
                     .catch(error => {
-                        res.setHeader('Content-type', 'application/json ; charset=utf-8');
+                        res.setHeader('Content-type','application/json ; charset=utf-8');
                         res.json(error);
                         res.status(400).send('400 ERROR');
                         res.end();
@@ -210,7 +210,7 @@ exports.companyUser_create = (req, res) => {
         });
     })
     .catch(error => {
-        res.setHeader('Content-type', 'application/json ; charset=utf-8');
+        res.setHeader('Content-type','application/json ; charset=utf-8');
         res.json(error);
         res.status(400).send('400 ERROR');
         res.end();

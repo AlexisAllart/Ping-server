@@ -26,7 +26,7 @@ exports.selection_list = (req,res)=>{
             res.end();
         }
         else {
-            if(authorizedData.companyUser.id) {
+            if(authorizedData.companyUser) {
                 db.Selection.findAll({
                     where:{
                         'company_id': authorizedData.companyUser.company_id
@@ -63,24 +63,31 @@ exports.selection_details = (req,res)=>{
             res.end();
         }
         else {
-            if(authorizedData.companyUser.id && authorizedData.companyUser.company_id==req.body.company_id) {
-                db.Selection.findOne({
-                    where:{
-                        'id': req.params.id,
-                    }
-                })
-                .then(data=>{
+            if(authorizedData.companyUser) {
+                if(authorizedData.companyUser.company_id==req.body.company_id) {
+                    db.Selection.findOne({
+                        where:{
+                            'id': req.params.id,
+                        }
+                    })
+                    .then(data=>{
+                        res.setHeader('Content-type','application/json ; charset=utf-8');
+                        res.json(data);
+                        res.status(200);
+                        res.end();
+                    })
+                    .catch(error=>{
+                        res.setHeader('Content-type','application/json ; charset=utf-8');
+                        res.json(error);
+                        res.status(400).send('400 ERROR');
+                        res.end();
+                    });
+                }
+                else {
                     res.setHeader('Content-type','application/json ; charset=utf-8');
-                    res.json(data);
-                    res.status(200);
+                    res.sendStatus(403).send('403 - ACCESS DENIED');
                     res.end();
-                })
-                .catch(error=>{
-                    res.setHeader('Content-type','application/json ; charset=utf-8');
-                    res.json(error);
-                    res.status(400).send('400 ERROR');
-                    res.end();
-                });
+                }
             }
             else {
                 res.setHeader('Content-type','application/json ; charset=utf-8');
@@ -91,33 +98,54 @@ exports.selection_details = (req,res)=>{
     });
 };
 
-// BEGIN CREATE (Only for companyUsers)
+// BEGIN CREATE (Only for companyUsers, do not create duplicates)
 exports.selection_create = (req,res)=>{
-    if(authorizedData.companyUser.id) {
-        db.Selection.create({
-            company_id:authorizedData.companyUser.company_id,
-            companyUser_id:authorizedData.companyUser.id,
-            tag_id:1,
-            user_id:req.body.user_id,
-        })
-        .then(data=>{
+    jwt.verify(req.token, 'secureKey', (err, authorizedData) => {
+        if(err){
             res.setHeader('Content-type','application/json ; charset=utf-8');
-            res.json(data);
-            res.status(200);
+            res.sendStatus(403).send('ERROR: Could not connect to the protected route');
             res.end();
-        })
-        .catch(error=>{
-            res.setHeader('Content-type','application/json ; charset=utf-8');
-            res.json(error);
-            res.status(400).send('400 ERROR');
-            res.end();
-        });
-    }
-    else {
-        res.setHeader('Content-type','application/json ; charset=utf-8');
-        res.sendStatus(403).send('403 - ACCESS DENIED');
-        res.end();
-    }
+        }
+        else {
+            if(authorizedData.companyUser) {
+                db.Selection.findOrCreate({
+                    where:{
+                        'company_id': authorizedData.companyUser.company_id,
+                        'user_id': req.body.user_id
+                    },
+                    defaults:{
+                        company_id:authorizedData.companyUser.company_id,
+                        companyUser_id:authorizedData.companyUser.id,
+                        tag_id:1,
+                        user_id:req.body.user_id
+                    }
+                })
+                .then((foundData,createdData)=>{
+                    res.setHeader('Content-type','application/json ; charset=utf-8');
+                    if (foundData) {
+                        res.json(foundData);
+                        res.status(400).send('ERROR - DUPLICATE ENTRY');
+                    }
+                    else {
+                        res.json(createdData);
+                        res.status(200);
+                    }
+                    res.end();
+                    })
+                .catch(error=>{
+                    res.setHeader('Content-type','application/json ; charset=utf-8');
+                    res.json(error);
+                    res.status(400).send('400 ERROR');
+                    res.end();
+                });
+            }
+            else {
+                res.setHeader('Content-type','application/json ; charset=utf-8');
+                res.sendStatus(403).send('ERROR: ACCESS DENIED');
+                res.end();
+            }
+        }
+    });
 };
 
 // BEGIN DELETE (Protected - only for companyUsers with matching company_id)
@@ -129,24 +157,31 @@ exports.selection_delete = (req,res)=>{
             res.end();
         }
         else {
-            if(authorizedData.companyUser.company.id==req.body.company_id) {
-                db.Selection.destroy({
-                    where:{
-                        'id': req.params.id
-                    }
-                })
-                .then(data=>{
+            if(authorizedData.companyUser) {
+                if(authorizedData.companyUser.company_id==req.body.company_id) {
+                    db.Selection.destroy({
+                        where:{
+                            'id': req.params.id
+                        }
+                    })
+                    .then(data=>{
+                        res.setHeader('Content-type','application/json ; charset=utf-8');
+                        res.json('Data successfully deleted');
+                        res.status(200);
+                        res.end();
+                    })
+                    .catch(error=>{
+                        res.setHeader('Content-type','application/json ; charset=utf-8');
+                        res.json(error);
+                        res.status(400).send('400 ERROR');
+                        res.end();
+                    });
+                }
+                else {
                     res.setHeader('Content-type','application/json ; charset=utf-8');
-                    res.json('Data successfully deleted');
-                    res.status(200);
+                    res.sendStatus(403).send('ERROR: ACCESS DENIED');
                     res.end();
-                })
-                .catch(error=>{
-                    res.setHeader('Content-type','application/json ; charset=utf-8');
-                    res.json(error);
-                    res.status(400).send('400 ERROR');
-                    res.end();
-                });
+                }
             }
             else {
                 res.setHeader('Content-type','application/json ; charset=utf-8');
