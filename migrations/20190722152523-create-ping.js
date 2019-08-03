@@ -8,35 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      company_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Companies',
-          key: 'id',
-          onDelete: 'CASCADE'
-        }
-      },
-      offer_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Offers',
-          key: 'id',
-          onDelete: 'CASCADE'
-        }
-      },
       companyUser_id: {
         type: Sequelize.INTEGER,
         references: {
           model: 'CompanyUsers',
           key: 'id'
-        }
-      },
-      user_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id',
-          onDelete: 'CASCADE'
         }
       },
       status_id: {

@@ -35,14 +35,6 @@ module.exports = {
       longitude: {
         type: Sequelize.FLOAT
       },
-      company_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Companies',
-          key: 'id',
-          onDelete: 'CASCADE'
-        }
-      },
       contractType_id: {
         type: Sequelize.INTEGER,
         references: {
