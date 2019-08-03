@@ -35,7 +35,6 @@ const company_controller=require('../controllers/company.controller');
 
 router.get('/list', company_controller.company_list);
 router.get('/details/:id', company_controller.company_details);
-// Comment protéger la création de nouvelles entreprises ?
 router.post('/create', company_controller.company_create);
 router.put('/edit/:id', checkToken, company_controller.company_edit);
 router.put('/logo/:id', checkToken, upload.single('logo'), company_controller.company_logo);

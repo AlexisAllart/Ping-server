@@ -22,9 +22,5 @@ const checkToken = (req, res, next) => {
 const role_controller=require('../controllers/role.controller');
 
 router.get('/list', checkToken, role_controller.role_list);
-// Les roles doivent déjà être présents dans la db, on ne peut pas les créer, les modifier ou les supprimer
-// router.post('/create', checkToken, role_controller.role_create);
-// router.put('/edit/:id', checkToken, role_controller.role_edit);
-// router.delete('/delete/:id', checkToken, role_controller.role_delete);
 
 module.exports=router;

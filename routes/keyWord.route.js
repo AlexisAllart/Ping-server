@@ -23,9 +23,5 @@ const keyWord_controller=require('../controllers/keyWord.controller');
 
 router.get('/list', keyWord_controller.keyWord_list);
 router.post('/create', checkToken, keyWord_controller.keyWord_create);
-// On ne peut pas modifier les keyWords, donc on ne crée pas de route pour edit
-// router.put('/edit/:id', checkToken, keyWord_controller.keyWord_edit);
-// On ne peut pas supprimer les keyWords, donc on ne crée pas de route pour delete
-// router.delete('/delete/:id', checkToken, keyWord_controller.keyWord_delete);
 
 module.exports=router;

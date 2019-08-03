@@ -22,9 +22,5 @@ const checkToken = (req, res, next) => {
 const contractType_controller=require('../controllers/contractType.controller');
 
 router.get('/list', contractType_controller.contractType_list);
-// Les contractTypes doivent déjà être présents dans la db, on ne peut pas les créer, les modifier ou les supprimer
-// router.post('/create', checkToken, contractType_controller.contractType_create);
-// router.put('/edit/:id', checkToken, contractType_controller.contractType_edit);
-// router.delete('/delete/:id', contractType_controller.contractType_delete);
 
 module.exports=router;
