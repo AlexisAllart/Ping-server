@@ -148,6 +148,52 @@ exports.selection_create = (req,res)=>{
     });
 };
 
+// BEGIN EDIT (Only for companyUsers with matching company_id)
+exports.selection_edit = (req,res)=>{
+    jwt.verify(req.token, 'secureKey', (err, authorizedData) => {
+        if(err){
+            res.setHeader('Content-type','application/json ; charset=utf-8');
+            res.sendStatus(403).send('ERROR: Could not connect to the protected route');
+            res.end();
+        }
+        else {
+            if(authorizedData.companyUser) {
+                if(authorizedData.companyUser.company_id==req.body.company_id) {
+                    db.Selection.update({
+                        tag_id: req.body.tag
+                        },{
+                        where:{
+                            'user_id': req.params.user_id
+                        }
+                    })
+                    .then(data=>{
+                        res.setHeader('Content-type','application/json ; charset=utf-8');
+                        res.json(data);
+                        res.status(200);
+                        res.end();
+                    })
+                    .catch(error=>{
+                        res.setHeader('Content-type','application/json ; charset=utf-8');
+                        res.json(error);
+                        res.status(400).send('400 ERROR');
+                        res.end();
+                    });
+                }
+                else {
+                    res.setHeader('Content-type','application/json ; charset=utf-8');
+                    res.sendStatus(403).send('ERROR: ACCESS DENIED');
+                    res.end();
+                }
+            }
+            else {
+                res.setHeader('Content-type','application/json ; charset=utf-8');
+                res.sendStatus(403).send('ERROR: ACCESS DENIED');
+                res.end();
+            }
+        }
+    });
+};
+
 // BEGIN DELETE (Protected - only for companyUsers with matching company_id)
 exports.selection_delete = (req,res)=>{
     jwt.verify(req.token, 'secureKey', (err, authorizedData) => {

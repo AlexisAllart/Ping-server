@@ -24,6 +24,7 @@ const selection_controller=require('../controllers/selection.controller');
 router.get('/list', checkToken, selection_controller.selection_list);
 router.get('/details/:id', checkToken, selection_controller.selection_details);
 router.post('/create', checkToken, selection_controller.selection_create);
+router.put('/edit/:id', checkToken, selection_controller.selection_edit);
 router.delete('/delete/:id', checkToken, selection_controller.selection_delete);
 
 module.exports=router;

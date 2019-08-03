@@ -175,26 +175,33 @@ exports.ping_edit = (req,res)=>{
             res.end();
         }
         else {
-            if(authorizedData.companyUser.company_id==req.body.company_id) {
-                db.Ping.update({
-                    status_id:req.body.status_id,
-                    },{
-                    where:{
-                        'id':req.params.id
-                    }
-                })
-                .then(data=>{
+            if(authorizedData.companyUser) {
+                if(authorizedData.companyUser.company_id==req.body.company_id) {
+                    db.Ping.update({
+                        status_id:req.body.status_id,
+                        },{
+                        where:{
+                            'id':req.params.id
+                        }
+                    })
+                    .then(data=>{
+                        res.setHeader('Content-type','application/json ; charset=utf-8');
+                        res.json(data);
+                        res.status(200);
+                        res.end();
+                    })
+                    .catch(error=>{
+                        res.setHeader('Content-type','application/json ; charset=utf-8');
+                        res.json(error);
+                        res.status(400).send('400 ERROR');
+                        res.end();
+                    });
+                }
+                else {
                     res.setHeader('Content-type','application/json ; charset=utf-8');
-                    res.json(data);
-                    res.status(200);
+                    res.sendStatus(403).send('ERROR: ACCESS DENIED');
                     res.end();
-                })
-                .catch(error=>{
-                    res.setHeader('Content-type','application/json ; charset=utf-8');
-                    res.json(error);
-                    res.status(400).send('400 ERROR');
-                    res.end();
-                });
+                }
             }
             else {
                 res.setHeader('Content-type','application/json ; charset=utf-8');
