@@ -21,7 +21,7 @@ const tag=require('./routes/tag.route');
 const ping=require('./routes/ping.route');
 const selection=require('./routes/selection.route');
 
-require('events').EventEmitter.defaultMaxListeners = 20;
+require('events').EventEmitter.defaultMaxListeners = 50;
 
 // BEGIN
 app.use('/user', user);
