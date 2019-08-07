@@ -75,7 +75,11 @@ exports.user_list = (req, res) => {
         } else {
             if (authorizedData.companyUser) {
                 if (authorizedData.companyUser.id) {
-                    db.User.findAll({})
+                    db.User.findAll({
+                        where: {
+                            'available': true
+                        }
+                    })
                         .then(data => {
                             res.status(200).json(data);
                         })
