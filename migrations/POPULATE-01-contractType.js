@@ -2,39 +2,35 @@
 module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface.bulkInsert('ContractTypes', [{
-      name: "CDI (Contrat à Durée Indéterminée)",
+      name: "CDI",
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      name: "CDD (Contrat à Durée Déterminée)",
+      name: "CDD",
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      name: "CTT (Contrat de Travail Temporaire - Intérim)",
+      name: "CTT",
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      name: "Contrat d'apprentissage (Alternance)",
+      name: "Alternance",
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      name: "Contrat de professionnalisation (Alternance)",
+      name: "Intermittent",
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      name: "Contrat de travail intermittent",
+      name: "Temps partiel",
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      name: "Contrat à temps partiel",
+      name: "CUI - CAE",
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      name: "CUI - CAE (Contrat Unique d'Insertion - Contrat d'Accompagnement dans l'Emploi)",
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      name: "CUI - CIE (Contrat Unique d'Insertion - Contrat Initiative Emploi)",
+      name: "CUI - CIE",
       createdAt: new Date(),
       updatedAt: new Date()
     }]);
