@@ -36,5 +36,10 @@ app.use('/tag', tag);
 app.use('/ping', ping);
 app.use('/selection', selection);
 
+app.get('/', function (req, res) {
+    res.send('Ping status = ONLINE');
+});
+  
+
 app.listen(9090);
 // END
