@@ -106,7 +106,8 @@ exports.user_details = (req, res) => {
             if (authorizedData.companyUser || authorizedData.user.id == req.params.id) {
                 db.User.findOne({
                         where: {
-                            'id': req.params.id
+                            'id': req.params.id,
+                            'available': true
                         }
                     })
                     .then(data => {
