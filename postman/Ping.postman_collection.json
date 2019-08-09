@@ -69,7 +69,7 @@
                     ]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/company/create",
+                    "raw": "http://localhost:9090/company/create",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -89,7 +89,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/company/list",
+                    "raw": "http://localhost:9090/company/list",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -109,7 +109,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/company/details/1",
+                    "raw": "http://localhost:9090/company/details/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -197,7 +197,7 @@
                     ]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/company/edit/1",
+                    "raw": "http://localhost:9090/company/edit/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -239,7 +239,7 @@
                     }]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/company/logo/1",
+                    "raw": "http://localhost:9090/company/logo/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -277,7 +277,7 @@
                     "formdata": []
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/company/delete/1",
+                    "raw": "http://localhost:9090/company/delete/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -317,7 +317,7 @@
                     ]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/companyUser/login",
+                    "raw": "http://localhost:9090/companyUser/login",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -371,7 +371,7 @@
                     ]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/companyUser/create",
+                    "raw": "http://localhost:9090/companyUser/create",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -411,7 +411,7 @@
                     "urlencoded": []
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/companyUser/list",
+                    "raw": "http://localhost:9090/companyUser/list",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -455,7 +455,7 @@
                     }]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/companyUser/details/1",
+                    "raw": "http://localhost:9090/companyUser/details/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -513,7 +513,7 @@
                     ]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/companyUser/edit/1",
+                    "raw": "http://localhost:9090/companyUser/edit/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -555,7 +555,7 @@
                     }]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/companyUser/delete/1",
+                    "raw": "http://localhost:9090/companyUser/delete/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -576,7 +576,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/contractType/list",
+                    "raw": "http://localhost:9090/contractType/list",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -617,7 +617,7 @@
                     }]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/keyWord/create",
+                    "raw": "http://localhost:9090/keyWord/create",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -637,7 +637,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/keyWord/list",
+                    "raw": "http://localhost:9090/keyWord/list",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -739,7 +739,7 @@
                     ]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/offer/create",
+                    "raw": "http://localhost:9090/offer/create",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -759,7 +759,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/offer/list",
+                    "raw": "http://localhost:9090/offer/list",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -779,7 +779,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/offer/details/1",
+                    "raw": "http://localhost:9090/offer/details/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -882,7 +882,7 @@
                     ]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/offer/edit/1",
+                    "raw": "http://localhost:9090/offer/edit/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -924,7 +924,7 @@
                     }]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/offer/delete/1",
+                    "raw": "http://localhost:9090/offer/delete/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -972,7 +972,7 @@
                     ]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/ping/create",
+                    "raw": "http://localhost:9090/ping/create",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1000,7 +1000,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/ping/list",
+                    "raw": "http://localhost:9090/ping/list",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1028,7 +1028,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/ping/details/1",
+                    "raw": "http://localhost:9090/ping/details/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1070,7 +1070,7 @@
                     }]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/ping/edit/1",
+                    "raw": "http://localhost:9090/ping/edit/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1108,7 +1108,7 @@
                     "urlencoded": []
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/ping/delete/1",
+                    "raw": "http://localhost:9090/ping/delete/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1137,7 +1137,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/ping/list",
+                    "raw": "http://localhost:9090/ping/list",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1178,7 +1178,7 @@
                     }]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/selection/create",
+                    "raw": "http://localhost:9090/selection/create",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1206,7 +1206,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/selection/list",
+                    "raw": "http://localhost:9090/selection/list",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1250,7 +1250,7 @@
                     }]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/selection/details/1",
+                    "raw": "http://localhost:9090/selection/details/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1292,7 +1292,7 @@
                     }]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/selection/delete/1",
+                    "raw": "http://localhost:9090/selection/delete/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1334,7 +1334,7 @@
                     }]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/selection/delete/1",
+                    "raw": "http://localhost:9090/selection/delete/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1355,7 +1355,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/status/list",
+                    "raw": "http://localhost:9090/status/list",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1375,7 +1375,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/tag/list",
+                    "raw": "http://localhost:9090/tag/list",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1414,7 +1414,7 @@
                     ]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/user/login",
+                    "raw": "http://localhost:9090/user/login",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1498,7 +1498,7 @@
                     ]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/user/create",
+                    "raw": "http://localhost:9090/user/create",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1531,7 +1531,7 @@
                     "type": "text"
                 }],
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/user/list",
+                    "raw": "http://localhost:9090/user/list",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1571,7 +1571,7 @@
                     "urlencoded": []
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/user/details/1",
+                    "raw": "http://localhost:9090/user/details/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1664,7 +1664,7 @@
                     ]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/user/edit/1",
+                    "raw": "http://localhost:9090/user/edit/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1706,7 +1706,7 @@
                     }]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/user/picture/1",
+                    "raw": "http://localhost:9090/user/picture/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1748,7 +1748,7 @@
                     }]
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/user/cv/1",
+                    "raw": "http://localhost:9090/user/cv/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -1786,7 +1786,7 @@
                     "urlencoded": []
                 },
                 "url": {
-                    "raw": "http://pingjob.herokuapp.com/user/delete/1",
+                    "raw": "http://localhost:9090/user/delete/1",
                     "protocol": "http",
                     "host": [
                         "localhost"
