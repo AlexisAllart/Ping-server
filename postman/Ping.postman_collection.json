@@ -1,1955 +1,1805 @@
 {
-	"info": {
-		"_postman_id": "839ad73f-c3f7-433d-8d1d-c16a845483c9",
-		"name": "Ping",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "company_create",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "about",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "address",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "email",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "facebook",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "link",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "linkedin",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "name",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "phone",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "twitter",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/company/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"company",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "company_list",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/company/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"company",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "company_details",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/company/details/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"company",
-						"details",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "company_edit",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "about",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "address",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "email",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "facebook",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "link",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "linkedin",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "name",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "phone",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "twitter",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/company/edit/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"company",
-						"edit",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "company_logo",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "logo",
-							"type": "file",
-							"src": []
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/company/logo/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"company",
-						"logo",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "company_delete",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
-				"url": {
-					"raw": "http://localhost:9090/company/delete/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"company",
-						"delete",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "companyUser_login",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/companyUser/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"companyUser",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "companyUser_create",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "name",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "companyEmail",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "companyPassword",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/companyUser/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"companyUser",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "companyUser_list",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": []
-				},
-				"url": {
-					"raw": "http://localhost:9090/companyUser/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"companyUser",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "companyUser_details",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "company_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/companyUser/details/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"companyUser",
-						"details",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "companyUser_edit",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "name",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "role_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/companyUser/edit/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"companyUser",
-						"edit",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "companyUser_delete",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "company_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/companyUser/delete/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"companyUser",
-						"delete",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "contractType_list",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/contractType/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"contractType",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "keyWord_create",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "name",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/keyWord/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"keyWord",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "keyWord_list",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/keyWord/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"keyWord",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "offer_create",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "title",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "description",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "salary",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "addressNumber",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "addressStreet",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "addressCity",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "addressZIPCode",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "latitude",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "longitude",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "contractType_id",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "keyWordOne_id",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "keyWordTwo_id",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "keyWordThree_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/offer/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"offer",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "offer_list",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/offer/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"offer",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "offer_details",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/offer/details/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"offer",
-						"details",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "offer_edit",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "title",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "description",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "salary",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "addressNumber",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "addressStreet",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "addressCity",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "addressZIPCode",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "latitude",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "longitude",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "contractType_id",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "keyWordOne_id",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "keyWordTwo_id",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "keyWordThree_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/offer/edit/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"offer",
-						"edit",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "offer_delete",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "offerCompany_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/offer/delete/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"offer",
-						"delete",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ping_create",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "company_id",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "offer_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/ping/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"ping",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ping_list",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/ping/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"ping",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ping_details",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/ping/details/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"ping",
-						"details",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ping_edit",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "status_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/ping/edit/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"ping",
-						"edit",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ping_delete",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": []
-				},
-				"url": {
-					"raw": "http://localhost:9090/ping/delete/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"ping",
-						"delete",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "role_list",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/ping/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"ping",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "selection_create",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "user_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/selection/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"selection",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "selection_list",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/selection/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"selection",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "selection_details",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "company_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/selection/details/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"selection",
-						"details",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "selection_edit",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "company_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/selection/delete/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"selection",
-						"delete",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "selection_delete",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "company_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/selection/delete/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"selection",
-						"delete",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "status_list",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/status/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"status",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "tag_list",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/tag/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"tag",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "user_login",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/user/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"user",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "user_create",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "about",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "email",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "facebook",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "firstName",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "lastName",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "linkedin",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "twitter",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "keyWordOne_id",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "keyWordTwo_id",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "keyWordThree_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/user/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"user",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "user_list",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:9090/user/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"user",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "user_details",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": []
-				},
-				"url": {
-					"raw": "http://localhost:9090/user/details/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"user",
-						"details",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "user_edit",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "about",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "email",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "facebook",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "firstName",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "lastName",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "linkedin",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "twitter",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "keyWordOne_id",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "keyWordTwo_id",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "keyWordThree_id",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/user/edit/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"user",
-						"edit",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "user_picture",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "picture",
-							"type": "file",
-							"src": []
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/user/picture/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"user",
-						"picture",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "user_cv",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "cv",
-							"type": "file",
-							"src": []
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:9090/user/cv/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"user",
-						"cv",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "user_delete",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": []
-				},
-				"url": {
-					"raw": "http://localhost:9090/user/delete/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"user",
-						"delete",
-						"1"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+    "info": {
+        "_postman_id": "839ad73f-c3f7-433d-8d1d-c16a845483c9",
+        "name": "Ping",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [{
+            "name": "company_create",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                            "key": "about",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "address",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "email",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "facebook",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "link",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "linkedin",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "name",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "phone",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "twitter",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/company/create",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "company",
+                        "create"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "company_list",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/company/list",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "company",
+                        "list"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "company_details",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/company/details/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "company",
+                        "details",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "company_edit",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "PUT",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                            "key": "about",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "address",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "email",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "facebook",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "link",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "linkedin",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "name",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "phone",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "twitter",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/company/edit/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "company",
+                        "edit",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "company_logo",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "PUT",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [{
+                        "key": "logo",
+                        "type": "file",
+                        "src": []
+                    }]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/company/logo/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "company",
+                        "logo",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "company_delete",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "DELETE",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": []
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/company/delete/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "company",
+                        "delete",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "companyUser_login",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                            "key": "email",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/companyUser/login",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "companyUser",
+                        "login"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "companyUser_create",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                            "key": "email",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "name",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "companyEmail",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "companyPassword",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/companyUser/create",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "companyUser",
+                        "create"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "companyUser_list",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "GET",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": []
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/companyUser/list",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "companyUser",
+                        "list"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "companyUser_details",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "GET",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                        "key": "company_id",
+                        "value": "",
+                        "type": "text"
+                    }]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/companyUser/details/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "companyUser",
+                        "details",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "companyUser_edit",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "PUT",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                            "key": "email",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "name",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "role_id",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/companyUser/edit/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "companyUser",
+                        "edit",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "companyUser_delete",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "DELETE",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                        "key": "company_id",
+                        "value": "",
+                        "type": "text"
+                    }]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/companyUser/delete/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "companyUser",
+                        "delete",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "contractType_list",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/contractType/list",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "contractType",
+                        "list"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "keyWord_create",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "POST",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                        "key": "name",
+                        "value": "",
+                        "type": "text"
+                    }]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/keyWord/create",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "keyWord",
+                        "create"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "keyWord_list",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/keyWord/list",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "keyWord",
+                        "list"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "offer_create",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "POST",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                            "key": "title",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "description",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "salary",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "addressNumber",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "addressStreet",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "addressCity",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "addressZIPCode",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "latitude",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "longitude",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "contractType_id",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "keyWordOne_id",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "keyWordTwo_id",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "keyWordThree_id",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/offer/create",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "offer",
+                        "create"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "offer_list",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/offer/list",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "offer",
+                        "list"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "offer_details",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/offer/details/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "offer",
+                        "details",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "offer_edit",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "PUT",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                            "key": "title",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "description",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "salary",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "addressNumber",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "addressStreet",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "addressCity",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "addressZIPCode",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "latitude",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "longitude",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "contractType_id",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "keyWordOne_id",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "keyWordTwo_id",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "keyWordThree_id",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/offer/edit/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "offer",
+                        "edit",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "offer_delete",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "DELETE",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                        "key": "offerCompany_id",
+                        "value": "",
+                        "type": "text"
+                    }]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/offer/delete/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "offer",
+                        "delete",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "ping_create",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "POST",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                            "key": "company_id",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "offer_id",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/ping/create",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "ping",
+                        "create"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "ping_list",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/ping/list",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "ping",
+                        "list"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "ping_details",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/ping/details/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "ping",
+                        "details",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "ping_edit",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "PUT",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                        "key": "status_id",
+                        "value": "",
+                        "type": "text"
+                    }]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/ping/edit/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "ping",
+                        "edit",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "ping_delete",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "DELETE",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": []
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/ping/delete/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "ping",
+                        "delete",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "role_list",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/ping/list",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "ping",
+                        "list"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "selection_create",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "POST",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                        "key": "user_id",
+                        "value": "",
+                        "type": "text"
+                    }]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/selection/create",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "selection",
+                        "create"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "selection_list",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/selection/list",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "selection",
+                        "list"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "selection_details",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "GET",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                        "key": "company_id",
+                        "value": "",
+                        "type": "text"
+                    }]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/selection/details/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "selection",
+                        "details",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "selection_edit",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "PUT",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                        "key": "company_id",
+                        "value": "",
+                        "type": "text"
+                    }]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/selection/delete/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "selection",
+                        "delete",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "selection_delete",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "DELETE",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                        "key": "company_id",
+                        "value": "",
+                        "type": "text"
+                    }]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/selection/delete/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "selection",
+                        "delete",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "status_list",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/status/list",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "status",
+                        "list"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "tag_list",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/tag/list",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "tag",
+                        "list"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "user_login",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                            "key": "email",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/user/login",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "user",
+                        "login"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "user_create",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                            "key": "about",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "email",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "facebook",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "firstName",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "lastName",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "linkedin",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "twitter",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "keyWordOne_id",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "keyWordTwo_id",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "keyWordThree_id",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/user/create",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "user",
+                        "create"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "user_list",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "GET",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                }],
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/user/list",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "user",
+                        "list"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "user_details",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "GET",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": []
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/user/details/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "user",
+                        "details",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "user_edit",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "PUT",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                            "key": "about",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "email",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "facebook",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "firstName",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "lastName",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "linkedin",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "twitter",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "keyWordOne_id",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "keyWordTwo_id",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "keyWordThree_id",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/user/edit/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "user",
+                        "edit",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "user_picture",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "PUT",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [{
+                        "key": "picture",
+                        "type": "file",
+                        "src": []
+                    }]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/user/picture/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "user",
+                        "picture",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "user_cv",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "PUT",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [{
+                        "key": "cv",
+                        "type": "file",
+                        "src": []
+                    }]
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/user/cv/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "user",
+                        "cv",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "user_delete",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [{
+                        "key": "token",
+                        "value": "",
+                        "type": "string"
+                    }]
+                },
+                "method": "DELETE",
+                "header": [{
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                }],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": []
+                },
+                "url": {
+                    "raw": "http://pingjob.herokuapp.com/user/delete/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090",
+                    "path": [
+                        "user",
+                        "delete",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
 }
