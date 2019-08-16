@@ -8,6 +8,9 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// CORS
+var cors = require('cors')
+
 // VARS & CONSTS
 const user = require('./routes/user.route');
 const company = require('./routes/company.route');
@@ -24,6 +27,7 @@ const selection = require('./routes/selection.route');
 require('events').EventEmitter.defaultMaxListeners = 50;
 
 // BEGIN
+app.use(cors());
 app.use('/user', user);
 app.use('/company', company);
 app.use('/companyUser', companyUser);
