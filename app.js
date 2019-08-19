@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var cors = require('cors')
 
 // PUBLIC DIRECTORY
+let path = require('path');
 let dir = path.join(__dirname, 'public');
 app.use(express.static(dir));
 
