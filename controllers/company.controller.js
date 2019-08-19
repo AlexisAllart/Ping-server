@@ -19,10 +19,10 @@ const checkToken = (req, res, next) => {
 // Multer
 let multer = require('multer');
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/')
+    destination: function(req, file, cb) {
+        cb(null, './public/uploads/')
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
         cb(null, file.originalname)
     }
 });

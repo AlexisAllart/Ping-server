@@ -11,6 +11,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // CORS
 var cors = require('cors')
 
+// PUBLIC DIRECTORY
+let dir = path.join(__dirname, 'public');
+app.use(express.static(dir));
+
 // VARS & CONSTS
 const user = require('./routes/user.route');
 const company = require('./routes/company.route');
