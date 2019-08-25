@@ -43,7 +43,7 @@ exports.companyUser_login = (req, res) => {
                         if (err) {
                             res.status(400).send('ERROR: Failed to create token');
                         } else {
-                            res.status(200).json(token);
+                            res.status(200).json({id: companyUser.id, token: token});
                         }
                     });
                 } else {
