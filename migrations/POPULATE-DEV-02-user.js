@@ -74,7 +74,7 @@ module.exports = {
       firstName: 'John',
       email: 'john.smith@gmail.com',
       password:'$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
-      picture: './uploads/User05jpg',
+      picture: './uploads/User05.jpg',
       cv: './uploads/User05.pdf',
       about: 'Proactive, senior administrative professional with a history of supporting C-level leaders in fast-paced corporate environments.',
       facebook: 'https://www.facebook.com/john.smith',

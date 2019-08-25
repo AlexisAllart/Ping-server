@@ -135,7 +135,7 @@ module.exports = {
       addressStreet: 'rue de Bretagne',
       addressCity: 'Lille',
       addressZIPCode: 59000,
-      latitude: 50.634261,
+      latitude: 50.636261,
       longitude: 3.020328,
       contractType_id: 1,
       companyUser_id: 1,
