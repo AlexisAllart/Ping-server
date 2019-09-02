@@ -57,7 +57,7 @@ exports.user_login = (req, res) => {
                         if (err) {
                             res.status(400).send('ERROR: Failed to create token');
                         }
-                        res.status(200).json({id: user.id, token: token});
+                        res.status(200).json({ id: user.id, token: token });
                     });
                 } else {
                     res.status(400).send('ERROR: Invalid password');
@@ -125,6 +125,7 @@ exports.user_details = (req, res) => {
 
 // BEGIN CREATE (Public)
 exports.user_create = (req, res) => {
+    console.log(req);
     res.setHeader('Content-type', 'application/json ; charset=utf-8');
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
         db.User.create({
