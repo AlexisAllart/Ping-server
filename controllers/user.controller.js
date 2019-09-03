@@ -125,24 +125,23 @@ exports.user_details = (req, res) => {
 
 // BEGIN CREATE (Public)
 exports.user_create = (req, res) => {
-    console.log(req);
     res.setHeader('Content-type', 'application/json ; charset=utf-8');
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
         db.User.create({
-                about: req.body.about,
+                about: "Non renseigné",
                 available: true,
                 cv: null,
                 email: req.body.email,
-                facebook: req.body.facebook,
+                facebook: "Non renseigné",
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
-                linkedin: req.body.linkedin,
+                linkedin: "Non renseigné",
                 password: hash,
                 picture: './assets/img/default.png',
-                twitter: req.body.twitter,
-                keyWordOne_id: req.body.keyWordOne_id,
-                keyWordTwo_id: req.body.keyWordTwo_id,
-                keyWordThree_id: req.body.keyWordThree_id
+                twitter: "Non renseigné",
+                keyWordOne_id: 1,
+                keyWordTwo_id: 1,
+                keyWordThree_id: 1
             })
             .then(data => {
                 res.status(200).json(data);
