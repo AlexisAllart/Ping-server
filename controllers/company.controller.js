@@ -68,18 +68,17 @@ exports.company_create = (req, res) => {
     res.setHeader('Content-type', 'application/json ; charset=utf-8');
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
         db.Company.create({
-                about: req.body.about,
-                address: req.body.address,
+                about: "Non renseigné",
+                address: "Non renseigné",
                 email: req.body.email,
-                facebook: req.body.facebook,
-                link: req.body.link,
-                linkedin: req.body.linkedin,
+                facebook: "Non renseigné",
+                link: "Non renseigné",
+                linkedin: "Non renseigné",
                 logo: './assets/img/default.png',
                 name: req.body.name,
                 password: hash,
-                phone: req.body.phone,
-                twitter: req.body.twitter,
-                role_id: 1
+                phone: "Non renseigné",
+                twitter: "Non renseigné"
             })
             .then(data => {
                 res.status(200).json(data);
