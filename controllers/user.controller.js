@@ -255,7 +255,7 @@ exports.user_picture = (req, res) => {
     });
 };
 
-// BEGIN CV UPLOAD (Protected - only for account owner) // PROBLEM WITH SEQUELIZE (SAVING TO PICTURE INSTEAD OF CV FOR SOME REASON ?!?)
+// BEGIN CV UPLOAD (Protected - only for account owner)
 exports.user_cv = (req, res) => {
     res.setHeader('Content-type', 'application/json ; charset=utf-8');
     jwt.verify(req.token, 'secureKey', (err, authorizedData) => {
