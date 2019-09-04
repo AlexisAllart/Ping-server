@@ -154,7 +154,15 @@ exports.companyUser_details = (req, res) => {
                         where: {
                             'id': req.params.id,
                             'company_id': (authorizedData.companyUser.company_id)
-                        }
+                        },
+                        include: [{
+                                model: db.Company,
+                                attributes: { exclude: 'password' }
+                            },
+                            {
+                                model: db.Role,
+                            }
+                        ]
                     })
                     .then(data => {
                         res.status(200).json(data);

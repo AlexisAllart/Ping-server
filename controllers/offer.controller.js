@@ -20,7 +20,36 @@ const checkToken = (req, res, next) => {
 // BEGIN LIST (Public)
 exports.offer_list = (req, res) => {
     res.setHeader('Content-type', 'application/json ; charset=utf-8');
-    db.Offer.findAll({})
+    db.Offer.findAll({
+            include: [{
+                    model: db.ContractType
+                },
+                {
+                    model: db.CompanyUser,
+                    attributes: { exclude: 'password' },
+                    include: [{
+                            model: db.Company,
+                            attributes: { exclude: 'password' }
+                        },
+                        {
+                            model: db.Role,
+                        }
+                    ]
+                },
+                {
+                    model: db.KeyWord,
+                    as: 'KeyWordOne'
+                },
+                {
+                    model: db.KeyWord,
+                    as: 'KeyWordTwo'
+                },
+                {
+                    model: db.KeyWord,
+                    as: 'KeyWordThree'
+                }
+            ]
+        })
         .then(data => {
             res.status(200).json(data);
         })
@@ -35,7 +64,35 @@ exports.offer_details = (req, res) => {
     db.Offer.findOne({
             where: {
                 'id': req.params.id
-            }
+            },
+            include: [{
+                    model: db.ContractType
+                },
+                {
+                    model: db.CompanyUser,
+                    attributes: { exclude: 'password' },
+                    include: [{
+                            model: db.Company,
+                            attributes: { exclude: 'password' }
+                        },
+                        {
+                            model: db.Role,
+                        }
+                    ]
+                },
+                {
+                    model: db.KeyWord,
+                    as: 'KeyWordOne'
+                },
+                {
+                    model: db.KeyWord,
+                    as: 'KeyWordTwo'
+                },
+                {
+                    model: db.KeyWord,
+                    as: 'KeyWordThree'
+                }
+            ]
         })
         .then(data => {
             res.status(200).json(data);

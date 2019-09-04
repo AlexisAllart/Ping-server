@@ -78,7 +78,20 @@ exports.user_list = (req, res) => {
                     db.User.findAll({
                             where: {
                                 'available': true
-                            }
+                            },
+                            include: [{
+                                    model: db.KeyWord,
+                                    as: 'KeyWordOne'
+                                },
+                                {
+                                    model: db.KeyWord,
+                                    as: 'KeyWordTwo'
+                                },
+                                {
+                                    model: db.KeyWord,
+                                    as: 'KeyWordThree'
+                                }
+                            ]
                         })
                         .then(data => {
                             res.status(200).json(data);
@@ -108,7 +121,20 @@ exports.user_details = (req, res) => {
                         where: {
                             'id': req.params.id,
                             'available': true
-                        }
+                        },
+                        include: [{
+                                model: db.KeyWord,
+                                as: 'KeyWordOne'
+                            },
+                            {
+                                model: db.KeyWord,
+                                as: 'KeyWordTwo'
+                            },
+                            {
+                                model: db.KeyWord,
+                                as: 'KeyWordThree'
+                            }
+                        ]
                     })
                     .then(data => {
                         res.status(200).json(data);

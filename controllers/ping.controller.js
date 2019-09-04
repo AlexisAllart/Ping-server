@@ -28,7 +28,59 @@ exports.ping_list = (req, res) => {
                 db.Ping.findAll({
                         where: {
                             'company_id': authorizedData.companyUser.company_id
-                        }
+                        },
+                        include: [{
+                                model: db.Company,
+                                attributes: { exclude: 'password' }
+                            },
+                            {
+                                model: db.CompanyUser,
+                                attributes: { exclude: ['password', 'company_id'] },
+                                include: [{
+                                    model: db.Role
+                                }]
+                            },
+                            {
+                                model: db.Offer,
+                                attributes: { exclude: ['company_id', 'companyUser_id', ''] },
+                                include: [{
+                                        model: db.KeyWord,
+                                        as: 'KeyWordOne'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordTwo'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordThree'
+                                    },
+                                    {
+                                        model: db.ContractType
+                                    }
+                                ]
+                            },
+                            {
+                                model: db.Status
+                            },
+                            {
+                                model: db.User,
+                                attributes: { exclude: 'password' },
+                                include: [{
+                                        model: db.KeyWord,
+                                        as: 'KeyWordOne'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordTwo'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordThree'
+                                    }
+                                ]
+                            }
+                        ]
                     })
                     .then(data => {
                         res.status(200).json(data);
@@ -40,7 +92,59 @@ exports.ping_list = (req, res) => {
                 db.Ping.findAll({
                         where: {
                             'user_id': authorizedData.user.id
-                        }
+                        },
+                        include: [{
+                                model: db.Company,
+                                attributes: { exclude: 'password' }
+                            },
+                            {
+                                model: db.CompanyUser,
+                                attributes: { exclude: ['password', 'company_id'] },
+                                include: [{
+                                    model: db.Role
+                                }]
+                            },
+                            {
+                                model: db.Offer,
+                                attributes: { exclude: ['company_id', 'companyUser_id', ''] },
+                                include: [{
+                                        model: db.KeyWord,
+                                        as: 'KeyWordOne'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordTwo'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordThree'
+                                    },
+                                    {
+                                        model: db.ContractType
+                                    }
+                                ]
+                            },
+                            {
+                                model: db.Status
+                            },
+                            {
+                                model: db.User,
+                                attributes: { exclude: 'password' },
+                                include: [{
+                                        model: db.KeyWord,
+                                        as: 'KeyWordOne'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordTwo'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordThree'
+                                    }
+                                ]
+                            }
+                        ]
                     })
                     .then(data => {
                         res.status(200).json(data);
@@ -67,7 +171,59 @@ exports.ping_details = (req, res) => {
                         where: {
                             'id': req.params.id,
                             'company_id': authorizedData.companyUser.company_id
-                        }
+                        },
+                        include: [{
+                                model: db.Company,
+                                attributes: { exclude: 'password' }
+                            },
+                            {
+                                model: db.CompanyUser,
+                                attributes: { exclude: ['password', 'company_id'] },
+                                include: [{
+                                    model: db.Role
+                                }]
+                            },
+                            {
+                                model: db.Offer,
+                                attributes: { exclude: ['company_id', 'companyUser_id', ''] },
+                                include: [{
+                                        model: db.KeyWord,
+                                        as: 'KeyWordOne'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordTwo'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordThree'
+                                    },
+                                    {
+                                        model: db.ContractType
+                                    }
+                                ]
+                            },
+                            {
+                                model: db.Status
+                            },
+                            {
+                                model: db.User,
+                                attributes: { exclude: 'password' },
+                                include: [{
+                                        model: db.KeyWord,
+                                        as: 'KeyWordOne'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordTwo'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordThree'
+                                    }
+                                ]
+                            }
+                        ]
                     })
                     .then(data => {
                         res.status(200).json(data);
@@ -80,7 +236,59 @@ exports.ping_details = (req, res) => {
                         where: {
                             'id': req.params.id,
                             'user_id': authorizedData.user.id
-                        }
+                        },
+                        include: [{
+                                model: db.Company,
+                                attributes: { exclude: 'password' }
+                            },
+                            {
+                                model: db.CompanyUser,
+                                attributes: { exclude: ['password', 'company_id'] },
+                                include: [{
+                                    model: db.Role
+                                }]
+                            },
+                            {
+                                model: db.Offer,
+                                attributes: { exclude: ['company_id', 'companyUser_id', ''] },
+                                include: [{
+                                        model: db.KeyWord,
+                                        as: 'KeyWordOne'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordTwo'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordThree'
+                                    },
+                                    {
+                                        model: db.ContractType
+                                    }
+                                ]
+                            },
+                            {
+                                model: db.Status
+                            },
+                            {
+                                model: db.User,
+                                attributes: { exclude: 'password' },
+                                include: [{
+                                        model: db.KeyWord,
+                                        as: 'KeyWordOne'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordTwo'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordThree'
+                                    }
+                                ]
+                            }
+                        ]
                     })
                     .then(data => {
                         res.status(200).json(data);

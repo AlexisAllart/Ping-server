@@ -27,7 +27,38 @@ exports.selection_list = (req, res) => {
                 db.Selection.findAll({
                         where: {
                             'company_id': authorizedData.companyUser.company_id
-                        }
+                        },
+                        include: [{
+                                model: db.Company
+                            },
+                            {
+                                model: db.CompanyUser,
+                                attributes: { exclude: ['password', 'company_id'] },
+                                include: [{
+                                    model: db.Role
+                                }]
+                            },
+                            {
+                                model: db.Tag,
+                            },
+                            {
+                                model: db.User,
+                                attributes: { exclude: ['password'] },
+                                include: [{
+                                        model: db.KeyWord,
+                                        as: 'KeyWordOne'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordTwo'
+                                    },
+                                    {
+                                        model: db.KeyWord,
+                                        as: 'KeyWordThree'
+                                    }
+                                ]
+                            }
+                        ]
                     })
                     .then(data => {
                         res.status(200).json(data);
@@ -54,7 +85,38 @@ exports.selection_details = (req, res) => {
                     db.Selection.findOne({
                             where: {
                                 'id': req.params.id,
-                            }
+                            },
+                            include: [{
+                                    model: db.Company
+                                },
+                                {
+                                    model: db.CompanyUser,
+                                    attributes: { exclude: ['password', 'company_id'] },
+                                    include: [{
+                                        model: db.Role
+                                    }]
+                                },
+                                {
+                                    model: db.Tag,
+                                },
+                                {
+                                    model: db.User,
+                                    attributes: { exclude: ['password'] },
+                                    include: [{
+                                            model: db.KeyWord,
+                                            as: 'KeyWordOne'
+                                        },
+                                        {
+                                            model: db.KeyWord,
+                                            as: 'KeyWordTwo'
+                                        },
+                                        {
+                                            model: db.KeyWord,
+                                            as: 'KeyWordThree'
+                                        }
+                                    ]
+                                }
+                            ]
                         })
                         .then(data => {
                             res.status(200).json(data);
