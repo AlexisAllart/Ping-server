@@ -120,12 +120,14 @@ exports.companyUser_list = (req, res) => {
                         where: {
                             'company_id': authorizedData.companyUser.company_id
                         },
-                        attributes: { exclude: ['password'] },
                         include: [{
-                                model: db.Company
+                                model: db.Company,
+                                as: 'company',
+                                attributes: { exclude: ['password'] }
                             },
                             {
-                                model: db.Role
+                                model: db.Role,
+                                as: 'role'
                             }
                         ]
                     })
