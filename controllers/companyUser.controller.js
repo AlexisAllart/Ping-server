@@ -120,6 +120,21 @@ exports.companyUser_list = (req, res) => {
                         where: {
                             'company_id': authorizedData.companyUser.company_id
                         },
+                        attributes: [
+                            db.Company.id,
+                            db.Company.name,
+                            db.Company.email,
+                            db.Company.phone,
+                            db.Company.facebook,
+                            db.Company.twitter,
+                            db.Company.linkedin,
+                            db.Company.link,
+                            db.Company.logo,
+                            db.Company.about,
+                            db.Company.address,
+                            db.Company.createdAt,
+                            db.Company.updatedAt
+                        ],
                         include: [{
                                 model: db.Company
                             },
