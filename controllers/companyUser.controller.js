@@ -43,7 +43,7 @@ exports.companyUser_login = (req, res) => {
                         if (err) {
                             res.status(400).send('ERROR: Failed to create token');
                         } else {
-                            res.status(200).json({id: companyUser.id, token: token});
+                            res.status(200).json({ id: companyUser.id, token: token });
                         }
                     });
                 } else {
@@ -119,7 +119,14 @@ exports.companyUser_list = (req, res) => {
                 db.CompanyUser.findAll({
                         where: {
                             'company_id': authorizedData.companyUser.company_id
-                        }
+                        },
+                        include: [{
+                                model: db.Company
+                            },
+                            {
+                                model: db.Role
+                            }
+                        ]
                     })
                     .then(data => {
                         res.status(200).json(data);
