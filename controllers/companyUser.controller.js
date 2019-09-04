@@ -122,12 +122,10 @@ exports.companyUser_list = (req, res) => {
                         },
                         include: [{
                                 model: db.Company,
-                                as: 'company',
                                 attributes: { exclude: 'password' }
                             },
                             {
                                 model: db.Role,
-                                as: 'role'
                             }
                         ]
                     })
