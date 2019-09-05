@@ -5,7 +5,7 @@ module.exports = {
       name: 'ASTON école Lille',
       password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
       email: 'admission-lille@aston-ecole.com',
-      phone: '03 74 74 05 20',
+      phone: '03 20 42 91 42',
       facebook: 'http://www.facebook.com/pages/ASTON-%C3%A9cole-dinformatique/234626209897365',
       twitter: 'http://twitter.com/#!/AstonEcole',
       linkedin: 'http://fr.linkedin.com/pub/aston-%C3%A9cole-d-informatique/37/b5b/a62',
