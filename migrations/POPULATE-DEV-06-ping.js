@@ -141,7 +141,7 @@ module.exports = {
       companyUser_id: 8,
       status_id: 1,
       company_id: 3,
-      offer_id: 7,
+      offer_id: 4,
       user_id: 18,
       createdAt: new Date(),
       updatedAt: new Date()
@@ -149,7 +149,7 @@ module.exports = {
       companyUser_id: 8,
       status_id: 1,
       company_id: 3,
-      offer_id: 7,
+      offer_id: 2,
       user_id: 8,
       createdAt: new Date(),
       updatedAt: new Date()
@@ -157,7 +157,7 @@ module.exports = {
       companyUser_id: 1,
       status_id: 1,
       company_id: 1,
-      offer_id: 8,
+      offer_id: 5,
       user_id: 19,
       createdAt: new Date(),
       updatedAt: new Date()
