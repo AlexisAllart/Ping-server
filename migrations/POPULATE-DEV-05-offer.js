@@ -34,7 +34,7 @@ module.exports = {
       keyWordOne_id: 20,
       keyWordTwo_id: 8,
       keyWordThree_id: 1,
-      company_id: 1,
+      company_id: 2,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -52,7 +52,7 @@ module.exports = {
       keyWordOne_id: 18,
       keyWordTwo_id: 22,
       keyWordThree_id: 9,
-      company_id: 1,
+      company_id: 3,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -70,7 +70,7 @@ module.exports = {
       keyWordOne_id: 16,
       keyWordTwo_id: 4,
       keyWordThree_id: 6,
-      company_id: 2,
+      company_id: 4,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -88,43 +88,7 @@ module.exports = {
       keyWordOne_id: 26,
       keyWordTwo_id: 17,
       keyWordThree_id: 2,
-      company_id: 3,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      title: 'Offre6',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      salary: 21000,
-      addressNumber: 159,
-      addressStreet: 'rue de Bretagne',
-      addressCity: 'Lille',
-      addressZIPCode: 59000,
-      latitude: 50.634424,
-      longitude: 3.018515,
-      contractType_id: 7,
-      companyUser_id: 6,
-      keyWordOne_id: 37,
-      keyWordTwo_id: 29,
-      keyWordThree_id: 6,
-      company_id: 2,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      title: 'Commercial H/F',
-      description: 'Votre mission sera de prospecter et de conquérir une clientèle de particuliers sur le marché de la rénovation de la fenêtre. Vous disposerez de l\'appui d\'une équipe et d\'outils d\'aide à la vente, ainsi que des rendez-vous fournis.',
-      salary: 24500,
-      addressNumber: 57,
-      addressStreet: 'rue Roger Bouvry',
-      addressCity: 'Seclin',
-      addressZIPCode: 59113,
-      latitude: 50.5474,
-      longitude: 3.02761,
-      contractType_id: 8,
-      companyUser_id: 8,
-      keyWordOne_id: 27,
-      keyWordTwo_id: 31,
-      keyWordThree_id: 3,
-      company_id: 3,
+      company_id: 5,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -142,7 +106,7 @@ module.exports = {
       keyWordOne_id: 16,
       keyWordTwo_id: 24,
       keyWordThree_id: 35,
-      company_id: 1,
+      company_id: 6,
       createdAt: new Date(),
       updatedAt: new Date()
     }]);
