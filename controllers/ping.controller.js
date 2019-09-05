@@ -339,7 +339,7 @@ exports.ping_edit = (req, res) => {
             if (authorizedData.companyUser) {
                 if (authorizedData.companyUser.company_id == req.body.company_id) {
                     db.Ping.update({
-                            status_id: req.body.status_id,
+                            status_id: req.body.status_id
                         }, {
                             where: {
                                 'id': req.params.id
