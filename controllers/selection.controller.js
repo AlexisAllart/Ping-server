@@ -142,29 +142,41 @@ exports.selection_create = (req, res) => {
             res.status(403).send('ERROR: Access denied');
         } else {
             if (authorizedData.companyUser) {
-                db.Selection.findOrCreate({
-                        where: {
-                            'company_id': authorizedData.companyUser.company_id,
-                            'user_id': req.body.user_id
-                        },
-                        defaults: {
-                            company_id: authorizedData.companyUser.company_id,
-                            companyUser_id: authorizedData.companyUser.id,
-                            tag_id: 1,
-                            user_id: req.body.user_id
-                        }
+                db.Selection.create({
+                        company_id: authorizedData.companyUser.company_id,
+                        companyUser_id: authorizedData.companyUser.id,
+                        tag_id: 1,
+                        user_id: req.body.user_id
                     })
-                    .then((foundData, createdData) => {
-                        if (foundData) {
-                            res.status(400).send('WARNING: Duplicate entry detected').json(foundData);
-                        } else {
-                            res.status(200).json(createdData);
-                        }
-                        res.end();
+                    .then(data => {
+                        res.status(200).json(data);
                     })
                     .catch(error => {
                         res.status(400).send('ERROR: Data not found');
                     });
+                // db.Selection.findOrCreate({
+                //         where: {
+                //             'company_id': authorizedData.companyUser.company_id,
+                //             'user_id': req.body.user_id
+                //         },
+                //         defaults: {
+                //             company_id: authorizedData.companyUser.company_id,
+                //             companyUser_id: authorizedData.companyUser.id,
+                //             tag_id: 1,
+                //             user_id: req.body.user_id
+                //         }
+                //     })
+                //     .then((foundData, createdData) => {
+                //         if (foundData) {
+                //             res.status(400).send('WARNING: Duplicate entry detected').json(foundData);
+                //         } else {
+                //             res.status(200).json(createdData);
+                //         }
+                //         res.end();
+                //     })
+                //     .catch(error => {
+                //         res.status(400).send('ERROR: Data not found');
+                //     });
             } else {
                 res.status(403).send('ERROR: Access denied');
             }
