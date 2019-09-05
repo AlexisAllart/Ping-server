@@ -197,7 +197,7 @@ exports.selection_edit = (req, res) => {
                             tag_id: req.body.tag
                         }, {
                             where: {
-                                'user_id': req.params.user_id
+                                'id': req.params.id
                             }
                         })
                         .then(data => {
