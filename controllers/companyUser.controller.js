@@ -185,6 +185,22 @@ exports.companyUser_edit = (req, res) => {
             res.status(403).send('ERROR: Access denied');
         } else {
             if (authorizedData.companyUser.role_id == 1 && authorizedData.companyUser.company_id == req.body.company_id || authorizedData.companyUser.id == req.params.id) {
+                // IN PROGRESS
+                // db.CompanyUser.findOne({
+                //         where: {
+                //             'id': req.params.id
+                //         }
+                // })
+                // .then(data => {
+                //     req.body.email == null ? req.body.email = data.email : '';
+                //     req.body.name == null ? req.body.name = data.name : '';
+                //     if (req.body.password != null) {
+
+                //     }
+                // })
+                // IN PROGRESS
+
+
                 bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
                     db.CompanyUser.update({
                             email: req.body.email,
