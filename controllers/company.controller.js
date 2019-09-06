@@ -38,7 +38,7 @@ const saltRounds = 10;
 // BEGIN LIST (Public)
 exports.company_list = (req, res) => {
     res.setHeader('Content-type', 'application/json ; charset=utf-8');
-    db.Company.findAll({})
+    db.Company.findAll({ attributes: { exclude: 'password' } })
         .then(data => {
             res.status(200).json(data);
         })
@@ -53,7 +53,8 @@ exports.company_details = (req, res) => {
     db.Company.findOne({
             where: {
                 'id': req.params.id
-            }
+            },
+            attributes: { exclude: 'password' }
         })
         .then(data => {
             res.status(200).json(data);
@@ -98,30 +99,54 @@ exports.company_edit = (req, res) => {
         } else {
             if (authorizedData.companyUser) {
                 if (authorizedData.companyUser.company_id == req.params.id) {
-                    bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-                        db.Company.update({
-                                about: req.body.about,
-                                address: req.body.address,
-                                email: req.body.email,
-                                facebook: req.body.facebook,
-                                link: req.body.link,
-                                linkedin: req.body.linkedin,
-                                name: req.body.name,
-                                password: hash,
-                                phone: req.body.phone,
-                                twitter: req.body.twitter
-                            }, {
-                                where: {
-                                    'id': req.params.id
-                                }
-                            })
-                            .then(data => {
-                                res.status(200).json(data);
-                            })
-                            .catch(error => {
-                                res.status(400).send('ERROR: Data not found');
-                            });
-                    });
+                    db.Company.findOne({
+                            where: {
+                                'id': req.params.id
+                            }
+                        })
+                        .then(data => {
+                            req.body.about == null ? req.body.about = data.about : '';
+                            req.body.address == null ? req.body.address = data.address : '';
+                            req.body.email == null ? req.body.email = data.email : '';
+                            req.body.facebook == null ? req.body.facebook = data.facebook : '';
+                            req.body.link == null ? req.body.link = data.link : '';
+                            req.body.linkedin == null ? req.body.linkedin = data.linkedin : '';
+                            req.body.name == null ? req.body.name = data.name : '';
+                            req.body.phone == null ? req.body.phone = data.phone : '';
+                            req.body.twitter == null ? req.body.twitter = data.twitter : '';
+                            if (req.body.password != null) {
+                                bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+                                    finalPassword = hash;
+                                });
+                            } else {
+                                finalPassword = data.password;
+                            }
+                            db.Company.update({
+                                    about: req.body.about,
+                                    address: req.body.address,
+                                    email: req.body.email,
+                                    facebook: req.body.facebook,
+                                    link: req.body.link,
+                                    linkedin: req.body.linkedin,
+                                    name: req.body.name,
+                                    password: finalPassword,
+                                    phone: req.body.phone,
+                                    twitter: req.body.twitter
+                                }, {
+                                    where: {
+                                        'id': req.params.id
+                                    }
+                                })
+                                .then(data => {
+                                    res.status(200).json(data);
+                                })
+                                .catch(error => {
+                                    res.status(400).send('ERROR: Data not found');
+                                });
+                        })
+                        .catch(error => {
+                            res.status(400).send('ERROR: Data not found');
+                        });
                 } else {
                     res.status(403).send('ERROR: Access denied');
                 }
