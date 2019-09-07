@@ -83,7 +83,7 @@ module.exports = {
       addressZIPCode: 59650,
       latitude: 50.6056,
       longitude: 3.15793,
-      contractType_id: 5,
+      contractType_id: 3,
       companyUser_id: 7,
       keyWordOne_id: 26,
       keyWordTwo_id: 17,
