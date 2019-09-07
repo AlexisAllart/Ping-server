@@ -14,26 +14,15 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      name: "Alternance",
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      name: "Intermittent",
+      name: "Stage",
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
       name: "Temps partiel",
       createdAt: new Date(),
       updatedAt: new Date()
-    }, {
-      name: "CUI - CAE",
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      name: "CUI - CIE",
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }]);
+    },
+    ]);
   },
   down: function(queryInterface, Sequelize) {
     return queryInterface.bulkDelete('ContractTypes', null, {});
