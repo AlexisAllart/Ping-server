@@ -9,11 +9,7 @@ module.exports = {
       name: "CDD",
       createdAt: new Date(),
       updatedAt: new Date()
-    }, {
-      name: "CTT",
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
+    },{
       name: "Stage",
       createdAt: new Date(),
       updatedAt: new Date()
