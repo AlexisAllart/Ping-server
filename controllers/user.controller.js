@@ -79,6 +79,7 @@ exports.user_list = (req, res) => {
                             where: {
                                 'available': true
                             },
+                            attributes: { exclude: 'password' },
                             include: [{
                                     model: db.KeyWord,
                                     as: 'KeyWordOne'
@@ -122,6 +123,7 @@ exports.user_details = (req, res) => {
                             'id': req.params.id,
                             'available': true
                         },
+                        attributes: { exclude: 'password' },
                         include: [{
                                 model: db.KeyWord,
                                 as: 'KeyWordOne'
@@ -188,6 +190,31 @@ exports.user_edit = (req, res) => {
             if (authorizedData.user) {
                 if (authorizedData.user.id == req.params.id) {
                     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+                        db.User.findOne({
+                                where: {
+                                    'id': req.params.id
+                                }
+                        })
+                        .then(data => {
+                            req.body.about == null ? req.body.about = data.about : '';
+                            req.body.available == null ? req.body.available = data.available : '';
+                            req.body.email == null ? req.body.email = data.email : '';
+                            req.body.facebook == null ? req.body.facebook = data.facebook : '';
+                            req.body.firstName == null ? req.body.firstName = data.firstName : '';
+                            req.body.lastName == null ? req.body.lastName = data.lastName : '';
+                            req.body.linkedin == null ? req.body.linkedin = data.linkedin : '';
+                            req.body.twitter == null ? req.body.twitter = data.twitter : '';
+                            req.body.keyWordOne_id == null ? req.body.keyWordOne_id = data.keyWordOne_id : '';
+                            req.body.keyWordTwo_id == null ? req.body.keyWordTwo_id = data.keyWordTwo_id : '';
+                            req.body.keyWordThree_id == null ? req.body.keyWordThree_id = data.keyWordThree_id : '';
+                        })
+                        if (req.body.password != null) {
+                            bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+                                finalPassword = hash;
+                            });
+                        } else {
+                            finalPassword = data.password;
+                        }
                         db.User.update({
                                 about: req.body.about,
                                 available: req.body.available,
@@ -196,7 +223,7 @@ exports.user_edit = (req, res) => {
                                 firstName: req.body.firstName,
                                 lastName: req.body.lastName,
                                 linkedin: req.body.linkedin,
-                                password: hash,
+                                password: finalPassword,
                                 twitter: req.body.twitter,
                                 keyWordOne_id: req.body.keyWordOne_id,
                                 keyWordTwo_id: req.body.keyWordTwo_id,

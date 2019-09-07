@@ -146,7 +146,28 @@ exports.offer_edit = (req, res) => {
             res.status(403).send('ERROR: Access denied');
         } else {
             if (authorizedData.companyUser.company_id == req.body.offerCompany_id) {
-                db.Offer.update({
+                db.Offer.findOne({
+                        where: {
+                            'id': req.params.id
+                        }
+                })
+                .then(data => {
+                    req.body.addressCity == null ? req.body.addressCity = data.addressCity : '';
+                    req.body.addressNumber == null ? req.body.addressNumber = data.addressNumber : '';
+                    req.body.addressStreet == null ? req.body.addressStreet = data.addressStreet : '';
+                    req.body.addressZIPCode == null ? req.body.addressZIPCode = data.addressZIPCode : '';
+                    req.body.description == null ? req.body.description = data.description : '';
+                    req.body.latitude == null ? req.body.latitude = data.latitude : '';
+                    req.body.longitude == null ? req.body.longitude = data.longitude : '';
+                    req.body.salary == null ? req.body.salary = data.salary : '';
+                    req.body.title == null ? req.body.title = data.title : '';
+                    req.body.company_id == null ? req.body.company_id = data.company_id : '';
+                    req.body.companyUser_id == null ? req.body.companyUser_id = data.companyUser_id : '';
+                    req.body.contractType_id == null ? req.body.contractType_id = data.contractType_id : '';
+                    req.body.keyWordOne_id == null ? req.body.keyWordOne_id = data.keyWordOne_id : '';
+                    req.body.keyWordTwo_id == null ? req.body.keyWordTwo_id = data.keyWordTwo_id : '';
+                    req.body.keyWordThree_id == null ? req.body.keyWordThree_id = data.keyWordThree_id : '';
+                    db.Offer.update({
                         addressCity: req.body.addressCity,
                         addressNumber: req.body.addressNumber,
                         addressStreet: req.body.addressStreet,
@@ -173,6 +194,10 @@ exports.offer_edit = (req, res) => {
                     .catch(error => {
                         res.status(400).send('ERROR: Data not found');
                     });
+                })
+                .catch(error => {
+                    res.status(400).send('ERROR: Data not found');
+                });
             } else {
                 res.status(403).send('ERROR: Access denied');
             }

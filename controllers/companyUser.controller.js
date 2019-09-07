@@ -185,39 +185,39 @@ exports.companyUser_edit = (req, res) => {
             res.status(403).send('ERROR: Access denied');
         } else {
             if (authorizedData.companyUser.role_id == 1 && authorizedData.companyUser.company_id == req.body.company_id || authorizedData.companyUser.id == req.params.id) {
-                // IN PROGRESS
-                // db.CompanyUser.findOne({
-                //         where: {
-                //             'id': req.params.id
-                //         }
-                // })
-                // .then(data => {
-                //     req.body.email == null ? req.body.email = data.email : '';
-                //     req.body.name == null ? req.body.name = data.name : '';
-                //     if (req.body.password != null) {
-
-                //     }
-                // })
-                // IN PROGRESS
-
-
-                bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-                    db.CompanyUser.update({
-                            email: req.body.email,
-                            name: req.body.name,
-                            password: hash,
-                        }, {
-                            where: {
-                                'id': req.params.id,
-                                'company_id': authorizedData.companyUser.company_id
-                            }
-                        })
-                        .then(data => {
-                            res.status(200).send('Data successfully updated');
-                        })
-                        .catch(error => {
-                            res.status(400).send('ERROR: Data not found');
+                db.CompanyUser.findOne({
+                        where: {
+                            'id': req.params.id
+                        }
+                })
+                .then(data => {
+                    req.body.email == null ? req.body.email = data.email : '';
+                    req.body.name == null ? req.body.name = data.name : '';
+                    req.body.role == null ? req.body.role = data.role : '';
+                    if (req.body.password != null) {
+                        bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+                            finalPassword = hash;
                         });
+                    } else {
+                        finalPassword = data.password;
+                    }
+                })
+                db.CompanyUser.update({
+                    email: req.body.email,
+                    name: req.body.name,
+                    role: req.body.role,
+                    password: finalPassword,
+                }, {
+                    where: {
+                        'id': req.params.id,
+                        'company_id': authorizedData.companyUser.company_id
+                    }
+                })
+                .then(data => {
+                    res.status(200).send('Data successfully updated');
+                })
+                .catch(error => {
+                    res.status(400).send('ERROR: Data not found');
                 });
             } else {
                 res.status(403).send('ERROR: Access denied');
