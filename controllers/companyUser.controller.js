@@ -38,7 +38,7 @@ exports.companyUser_login = (req, res) => {
                     jwt.sign({
                         companyUser
                     }, 'secureKey', {
-                        expiresIn: '1h'
+                        expiresIn: '24h'
                     }, (err, token) => {
                         if (err) {
                             res.status(400).send('ERROR: Failed to create token');
