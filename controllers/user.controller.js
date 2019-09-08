@@ -19,10 +19,10 @@ const checkToken = (req, res, next) => {
 // Multer
 let multer = require('multer');
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
+    destination: function (req, file, cb) {
         cb(null, 'public/uploads/')
     },
-    filename: function(req, file, cb) {
+    filename: function (req, file, cb) {
         cb(null, file.originalname)
     }
 });
@@ -57,7 +57,10 @@ exports.user_login = (req, res) => {
                         if (err) {
                             res.status(400).send('ERROR: Failed to create token');
                         }
-                        res.status(200).json({ id: user.id, token: token });
+                        res.status(200).json({
+                            id: user.id,
+                            token: token
+                        });
                     });
                 } else {
                     res.status(400).send('ERROR: Invalid password');
@@ -79,7 +82,9 @@ exports.user_list = (req, res) => {
                             where: {
                                 'available': true
                             },
-                            attributes: { exclude: 'password' },
+                            attributes: {
+                                exclude: 'password'
+                            },
                             include: [{
                                     model: db.KeyWord,
                                     as: 'KeyWordOne'
@@ -123,7 +128,9 @@ exports.user_details = (req, res) => {
                             'id': req.params.id,
                             'available': true
                         },
-                        attributes: { exclude: 'password' },
+                        attributes: {
+                            exclude: 'password'
+                        },
                         include: [{
                                 model: db.KeyWord,
                                 as: 'KeyWordOne'
@@ -189,11 +196,10 @@ exports.user_edit = (req, res) => {
         } else {
             if (authorizedData.user) {
                 if (authorizedData.user.id == req.params.id) {
-                    bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-                        db.User.findOne({
-                                where: {
-                                    'id': req.params.id
-                                }
+                    db.User.findOne({
+                            where: {
+                                'id': req.params.id
+                            }
                         })
                         .then(data => {
                             req.body.about == null ? req.body.about = data.about : '';
@@ -208,38 +214,38 @@ exports.user_edit = (req, res) => {
                             req.body.keyWordTwo_id == null ? req.body.keyWordTwo_id = data.keyWordTwo_id : '';
                             req.body.keyWordThree_id == null ? req.body.keyWordThree_id = data.keyWordThree_id : '';
                         })
-                        if (req.body.password != null) {
-                            bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-                                finalPassword = hash;
-                            });
-                        } else {
-                            finalPassword = data.password;
-                        }
-                        db.User.update({
-                                about: req.body.about,
-                                available: req.body.available,
-                                email: req.body.email,
-                                facebook: req.body.facebook,
-                                firstName: req.body.firstName,
-                                lastName: req.body.lastName,
-                                linkedin: req.body.linkedin,
-                                password: finalPassword,
-                                twitter: req.body.twitter,
-                                keyWordOne_id: req.body.keyWordOne_id,
-                                keyWordTwo_id: req.body.keyWordTwo_id,
-                                keyWordThree_id: req.body.keyWordThree_id
-                            }, {
-                                where: {
-                                    'id': req.params.id
-                                }
-                            })
-                            .then(data => {
-                                res.status(200).json(data);
-                            })
-                            .catch(error => {
-                                res.status(400).send('ERROR: Data not found');
-                            });
-                    });
+                    if (req.body.password != null) {
+                        bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+                            finalPassword = hash;
+                        });
+                    } else {
+                        finalPassword = data.password;
+                    }
+                    db.User.update({
+                            about: req.body.about,
+                            available: req.body.available,
+                            email: req.body.email,
+                            facebook: req.body.facebook,
+                            firstName: req.body.firstName,
+                            lastName: req.body.lastName,
+                            linkedin: req.body.linkedin,
+                            password: finalPassword,
+                            twitter: req.body.twitter,
+                            keyWordOne_id: req.body.keyWordOne_id,
+                            keyWordTwo_id: req.body.keyWordTwo_id,
+                            keyWordThree_id: req.body.keyWordThree_id
+                        }, {
+                            where: {
+                                'id': req.params.id
+                            }
+                        })
+                        .then(data => {
+                            res.status(200).json(data);
+                        })
+                        .catch(error => {
+                            res.status(400).send('ERROR: Data not found');
+                        });
+
                 } else {
                     res.status(403).send('ERROR: Access denied');
                 }
