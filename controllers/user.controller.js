@@ -213,39 +213,41 @@ exports.user_edit = (req, res) => {
                             req.body.keyWordOne_id == null ? req.body.keyWordOne_id = data.keyWordOne_id : '';
                             req.body.keyWordTwo_id == null ? req.body.keyWordTwo_id = data.keyWordTwo_id : '';
                             req.body.keyWordThree_id == null ? req.body.keyWordThree_id = data.keyWordThree_id : '';
-                        })
-                    if (req.body.password != null) {
-                        bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-                            finalPassword = hash;
-                        });
-                    } else {
-                        finalPassword = data.password;
-                    }
-                    db.User.update({
-                            about: req.body.about,
-                            available: req.body.available,
-                            email: req.body.email,
-                            facebook: req.body.facebook,
-                            firstName: req.body.firstName,
-                            lastName: req.body.lastName,
-                            linkedin: req.body.linkedin,
-                            password: finalPassword,
-                            twitter: req.body.twitter,
-                            keyWordOne_id: req.body.keyWordOne_id,
-                            keyWordTwo_id: req.body.keyWordTwo_id,
-                            keyWordThree_id: req.body.keyWordThree_id
-                        }, {
-                            where: {
-                                'id': req.params.id
+                            if (req.body.password != null) {
+                                bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+                                    finalPassword = hash;
+                                });
+                            } else {
+                                finalPassword = data.password;
                             }
-                        })
-                        .then(data => {
-                            res.status(200).json(data);
+                            db.User.update({
+                                    about: req.body.about,
+                                    available: req.body.available,
+                                    email: req.body.email,
+                                    facebook: req.body.facebook,
+                                    firstName: req.body.firstName,
+                                    lastName: req.body.lastName,
+                                    linkedin: req.body.linkedin,
+                                    password: finalPassword,
+                                    twitter: req.body.twitter,
+                                    keyWordOne_id: req.body.keyWordOne_id,
+                                    keyWordTwo_id: req.body.keyWordTwo_id,
+                                    keyWordThree_id: req.body.keyWordThree_id
+                                }, {
+                                    where: {
+                                        'id': req.params.id
+                                    }
+                                })
+                                .then(data => {
+                                    res.status(200).json(data);
+                                })
+                                .catch(error => {
+                                    res.status(400).send('ERROR: Data not found');
+                                });
                         })
                         .catch(error => {
                             res.status(400).send('ERROR: Data not found');
                         });
-
                 } else {
                     res.status(403).send('ERROR: Access denied');
                 }
