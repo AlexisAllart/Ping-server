@@ -368,21 +368,32 @@ exports.ping_delete = (req, res) => {
         if (err) {
             res.status(403).send('ERROR: Access denied');
         } else {
-            if (authorizedData.user.id == req.params.id) {
-                db.Ping.destroy({
-                        where: {
-                            'id': req.params.id
-                        }
-                    })
-                    .then(data => {
-                        res.status(200).send('Data successfully deleted');
-                    })
-                    .catch(error => {
-                        res.status(400).send('ERROR: Data not found');
-                    });
-            } else {
-                res.status(403).send('ERROR: Access denied');
-            }
+
+            db.Ping.findOne({
+                    where: {
+                        'id': req.params.id
+                    }
+                })
+                .then(data => {
+                    if (authorizedData.user.id == data.user_id) {
+                        db.Offer.destroy({
+                                where: {
+                                    'id': req.params.id
+                                }
+                            })
+                            .then(data => {
+                                res.status(200).send('Data successfully deleted');
+                            })
+                            .catch(error => {
+                                res.status(400).send('ERROR: Data not found');
+                            });
+                    } else {
+                        res.status(403).send('ERROR: Access denied');
+                    }
+                })
+                .catch(error => {
+                    res.status(400).send('ERROR: Data not found');
+                });
         }
     });
 };
