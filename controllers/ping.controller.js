@@ -368,7 +368,6 @@ exports.ping_delete = (req, res) => {
         if (err) {
             res.status(403).send('ERROR: Access denied');
         } else {
-
             db.Ping.findOne({
                     where: {
                         'id': req.params.id
@@ -376,7 +375,7 @@ exports.ping_delete = (req, res) => {
                 })
                 .then(data => {
                     if (authorizedData.user.id == data.user_id) {
-                        db.Offer.destroy({
+                        db.Ping.destroy({
                                 where: {
                                     'id': req.params.id
                                 }
