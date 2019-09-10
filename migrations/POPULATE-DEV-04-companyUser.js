@@ -70,7 +70,16 @@ module.exports = {
       password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
       email: 'daisy.villegas@gmail.com',
       role_id: '2',
-      company_id: '3',
+      company_id: '9',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      name: 'Wahiba Fay',
+      password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
+      email: 'wahiba.fay@gmail.com',
+      role_id: '2',
+      company_id: '10',
       createdAt: new Date(),
       updatedAt: new Date()
     }]);

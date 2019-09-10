@@ -120,7 +120,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Vendeurs pour Amorino H/F',
+      name: 'Amorino',
       password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
       email: 'contact@amorino.fr',
       phone: '0318343553',
@@ -131,6 +131,21 @@ module.exports = {
       logo: './uploads/AMORINO.png',
       about: "Amorino est une marque française de glaces italiennes, dont les boutiques franchisées sont installées dans plusieurs pays à travers le monde. Elle appartient à la société CPG et la fabrication est confiée à la société : -18°.",
       address: '42 Rue Cler, 75007 Paris',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      name: 'PataKrep',
+      password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
+      email: 'contact@patakrep.fr',
+      phone: '0328343553',
+      facebook: 'https://fr-fr.facebook.com/afpa.hautsdefrance/',
+      twitter: 'https://twitter.com/afpa_hdf',
+      linkedin: 'https://www.linkedin.com/company/afpa/',
+      link: 'https://www.afpa.fr/centre/centre-de-lille-lomme',
+      logo: './uploads/PATAKREP.jpg',
+      about: "Dans le 18e arrondissement de Paris, la crêperie PataKrep vous accueille dans un cadre décontracté et bigarré. Vous reviendrez quelques années en arrière à la vue du mobilier. Les tables et les chaises semblent venir tout droit d’une école. Et le menu est inscrit sur un cahier de brouillon.",
+      address: '89 Rue Duhesme, 75018 Paris',
       createdAt: new Date(),
       updatedAt: new Date()
     },
