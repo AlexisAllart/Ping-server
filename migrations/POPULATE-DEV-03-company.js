@@ -149,6 +149,36 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     },
+    {
+      name: 'Les Jardins d\'Arcadie',
+      password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
+      email: 'contact@lesjardinsarcadie.fr',
+      phone: '0328343553',
+      facebook: 'https://fr-fr.facebook.com/afpa.hautsdefrance/',
+      twitter: 'https://twitter.com/afpa_hdf',
+      linkedin: 'https://www.linkedin.com/company/afpa/',
+      link: 'https://www.afpa.fr/centre/centre-de-lille-lomme',
+      logo: './uploads/ARCADIE.png',
+      about: "La résidence « Les Jardins d’Arcadie » est idéalement située dans le Carré Perret, quartier en plein renouveau, qui est prédominé par la Tour Perret, symbole d’Amiens conçue par l’architecte Auguste Perret et classée monument historique depuis 1975. Ce quartier redessine le cœur de ville avec un hôtel, des commerces, des immeubles dans un nouvel espace vivant, aéré et empreint d’histoire.",
+      address: '4 Rue Alexandre Fatton, 80000 Amiens',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      name: 'La bouquinerie du Sart',
+      password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
+      email: 'contact@bouquineriesart.fr',
+      phone: '0628343553',
+      facebook: 'https://fr-fr.facebook.com/afpa.hautsdefrance/',
+      twitter: 'https://twitter.com/afpa_hdf',
+      linkedin: 'https://www.linkedin.com/company/afpa/',
+      link: 'https://www.afpa.fr/centre/centre-de-lille-lomme',
+      logo: './uploads/SART.png',
+      about: "Nous sommes une entreprise solidaire qui collecte des livres et les revend pour créer des emplois solidaires pour les personnes logeant dans les centres d'hébergement. Nous avons 2 librairies dont celle de Roncq de 400m2.",
+      address: '7 Boulevard Albert 1er, Villeneuve-d\'Ascq',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
 
   ]);
   },

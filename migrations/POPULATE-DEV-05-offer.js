@@ -185,7 +185,46 @@ module.exports = {
       company_id: 10,
       createdAt: new Date(),
       updatedAt: new Date()
-    }
+    },
+    {
+      title: 'Veilleur de nuit (F/H)',
+      description: 'Les Jardins d\'Arcadie recrutent ! Sous la responsabilité du Directeur d’établissement, vous êtes en charge d’assurer la sécurité des résidents et des locaux afin de garantir la tranquillité de la résidence. Poste en CDI basé à AMIENS (80).', 
+      salary: 39000,
+      addressNumber: 4,
+      addressStreet: 'Rue Alexandre Fatton',
+      addressCity: 'Amiens',
+      addressZIPCode: 80000,
+      latitude: 49.892,
+      longitude: 2.3054,
+      contractType_id: 1,
+      companyUser_id: 11,
+      keyWordOne_id: 16,
+      keyWordTwo_id: 24,
+      keyWordThree_id: 35,
+      company_id: 11,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      title: 'Vendeur librairie',
+      description: 'Votre mission sera : Accueillir et conseiller la clientèle et s’assurer de la satisfaction des clients Développer les ventes et assurer l’encaissement des clients Gérer la réception des marchandises et leur mise en rayon Assurer une tenue des rayons attractive et commerciale', 
+      salary: 39000,
+      addressNumber: 7,
+      addressStreet: 'Boulevard Albert 1er',
+      addressCity: 'Villeneuve-d\'Ascq',
+      addressZIPCode: 59650,
+      latitude: 50.6591,
+      longitude: 3.13595,
+      contractType_id: 1,
+      companyUser_id: 12,
+      keyWordOne_id: 16,
+      keyWordTwo_id: 24,
+      keyWordThree_id: 35,
+      company_id: 12,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+
   
   ]);
   },

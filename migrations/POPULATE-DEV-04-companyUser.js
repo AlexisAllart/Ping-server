@@ -82,7 +82,26 @@ module.exports = {
       company_id: '10',
       createdAt: new Date(),
       updatedAt: new Date()
-    }]);
+    },
+    {
+      name: 'Laurène Flamey',
+      password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
+      email: 'laurene.fmy@gmail.com',
+      role_id: '2',
+      company_id: '11',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      name: 'Soulaimane Asbai',
+      password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
+      email: 'soulaimane.asbai@gmail.com',
+      role_id: '2',
+      company_id: '12',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+  ]);
   },
   down: function(queryInterface, Sequelize) {
     return queryInterface.bulkDelete('CompanyUsers', null, {});
