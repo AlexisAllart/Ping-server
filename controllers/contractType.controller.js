@@ -19,13 +19,17 @@ const checkToken = (req, res, next) => {
 // BEGIN
 // BEGIN LIST (Public)
 exports.contractType_list = (req, res) => {
-    res.setHeader('Content-type', 'application/json ; charset=utf-8');
-    db.ContractType.findAll({})
-        .then(data => {
-            res.status(200).json(data);
-        })
-        .catch(error => {
-            res.status(400).send('ERROR: Data not found');
-        });
-}
-// END
+        res.setHeader('Content-type', 'application/json ; charset=utf-8');
+        db.ContractType.findAll({
+                order: [
+                    ['id', 'ASC']
+                ],
+            })
+            .then(data => {
+                res.status(200).json(data);
+            })
+            .catch(error => {
+                res.status(400).send('ERROR: Data not found');
+            });
+    }
+    // END

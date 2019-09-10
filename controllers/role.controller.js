@@ -25,7 +25,11 @@ exports.role_list = (req, res) => {
             res.status(403).send('ERROR: Access denied');
         } else {
             if (authorizedData.companyUser) {
-                db.Role.findAll({})
+                db.Role.findAll({
+                        order: [
+                            ['id', 'ASC']
+                        ],
+                    })
                     .then(data => {
                         res.status(200).json(data);
                     })

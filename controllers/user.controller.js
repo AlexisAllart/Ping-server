@@ -19,10 +19,10 @@ const checkToken = (req, res, next) => {
 // Multer
 let multer = require('multer');
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
         cb(null, 'public/uploads/')
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
         cb(null, file.originalname)
     }
 });
@@ -82,6 +82,9 @@ exports.user_list = (req, res) => {
                             where: {
                                 'available': true
                             },
+                            order: [
+                                ['id', 'DESC']
+                            ],
                             attributes: {
                                 exclude: 'password'
                             },

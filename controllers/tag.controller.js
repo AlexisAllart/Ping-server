@@ -20,7 +20,11 @@ const checkToken = (req, res, next) => {
 // BEGIN LIST (Public)
 exports.tag_list = (req, res) => {
     res.setHeader('Content-type', 'application/json ; charset=utf-8');
-    db.Tag.findAll({})
+    db.Tag.findAll({
+            order: [
+                ['id', 'ASC']
+            ],
+        })
         .then(data => {
             res.status(200).json(data);
         })

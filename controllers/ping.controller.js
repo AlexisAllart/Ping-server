@@ -29,6 +29,9 @@ exports.ping_list = (req, res) => {
                         where: {
                             'company_id': authorizedData.companyUser.company_id
                         },
+                        order: [
+                            ['id', 'DESC']
+                        ],
                         include: [{
                                 model: db.Company,
                                 attributes: { exclude: 'password' }
@@ -93,6 +96,9 @@ exports.ping_list = (req, res) => {
                         where: {
                             'user_id': authorizedData.user.id
                         },
+                        order: [
+                            ['id', 'DESC']
+                        ],
                         include: [{
                                 model: db.Company,
                                 attributes: { exclude: 'password' }

@@ -20,7 +20,11 @@ const checkToken = (req, res, next) => {
 // BEGIN LIST (Public)
 exports.keyWord_list = (req, res) => {
     res.setHeader('Content-type', 'application/json ; charset=utf-8');
-    db.KeyWord.findAll({})
+    db.KeyWord.findAll({
+            order: [
+                ['id', 'ASC']
+            ],
+        })
         .then(data => {
             res.status(200).json(data);
         })

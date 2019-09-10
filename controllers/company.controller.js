@@ -38,7 +38,12 @@ const saltRounds = 10;
 // BEGIN LIST (Public)
 exports.company_list = (req, res) => {
     res.setHeader('Content-type', 'application/json ; charset=utf-8');
-    db.Company.findAll({ attributes: { exclude: 'password' } })
+    db.Company.findAll({
+            attributes: { exclude: 'password' },
+            order: [
+                ['id', 'ASC']
+            ],
+        })
         .then(data => {
             res.status(200).json(data);
         })

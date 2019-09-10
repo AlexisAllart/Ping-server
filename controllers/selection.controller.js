@@ -28,6 +28,9 @@ exports.selection_list = (req, res) => {
                         where: {
                             'company_id': authorizedData.companyUser.company_id
                         },
+                        order: [
+                            ['id', 'DESC']
+                        ],
                         include: [{
                                 model: db.Company
                             },
