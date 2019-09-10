@@ -14,7 +14,7 @@ module.exports = {
       password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
       email: 'melvin.salter@gmail.com',
       role_id: '2',
-      company_id: '1',
+      company_id: '2',
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -22,7 +22,7 @@ module.exports = {
       password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
       email: 'skye.stark@gmail.com',
       role_id: '2',
-      company_id: '1',
+      company_id: '3',
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -30,7 +30,7 @@ module.exports = {
       password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
       email: 'denzel.head@gmail.com',
       role_id: '1',
-      company_id: '2',
+      company_id: '4',
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -38,7 +38,7 @@ module.exports = {
       password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
       email: 'maha.rawlings@gmail.com',
       role_id: '2',
-      company_id: '2',
+      company_id: '5',
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -46,7 +46,7 @@ module.exports = {
       password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
       email: 'harri.cain@gmail.com',
       role_id: '2',
-      company_id: '2',
+      company_id: '6',
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -54,7 +54,7 @@ module.exports = {
       password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
       email: 'lana.steele@gmail.com',
       role_id: '1',
-      company_id: '3',
+      company_id: '7',
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -62,7 +62,7 @@ module.exports = {
       password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
       email: 'sayed.mendoza@gmail.com',
       role_id: '2',
-      company_id: '3',
+      company_id: '8',
       createdAt: new Date(),
       updatedAt: new Date()
     }, {

@@ -68,7 +68,7 @@ module.exports = {
       twitter: 'https://twitter.com/afpa_hdf',
       linkedin: 'https://www.linkedin.com/company/afpa/',
       link: 'https://www.afpa.fr/centre/centre-de-lille-lomme',
-      logo: './uploads/MISGROUP.png',
+      logo: './uploads/ECOCUP.png',
       about: "Gobelets Réutilisables pour Promouvoir tous types d'Evènements ! Faites un Geste pour l'Environnement grâce au Gobelet Plastique Réutilisable ! Recyclable. Depuis 2008. Agréable au toucher. 100% certifié. Types: Gobelets réutilisables, Verres à Vin. Notre métier : nous fabriquons, vendons, louons et lavons des gobelets écologiques pour tous vos événements.",
       address: '85 rue Haddock, 59650 Villeneuve d\'Ascq',
       createdAt: new Date(),
@@ -88,7 +88,53 @@ module.exports = {
       address: '3 rue de la République, 59113 Seclin',
       createdAt: new Date(),
       updatedAt: new Date()
-    }
+    },
+    {
+      name: 'Vertical Art',
+      password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
+      email: 'contact@verticalart.fr',
+      phone: '0618343593',
+      facebook: 'https://fr-fr.facebook.com/afpa.hautsdefrance/',
+      twitter: 'https://twitter.com/afpa_hdf',
+      linkedin: 'https://www.linkedin.com/company/afpa/',
+      link: 'https://www.afpa.fr/centre/centre-de-lille-lomme',
+      logo: './uploads/VERTICALART.png',
+      about: "Au-delà d’une équipe, Vertical’ Art c’est avant tout une famille ! Fort de trois années d’exploitation dans les Yvelines, Vertical’ Art s’étend à Nantes, Rouen et Rungis. Avec les années notre enseigne a su prouver sa rentabilité et a confirmé l’engouement croissant pour notre sport !",
+      address: '2 Rue Paul Langevin, 59260 Lezennes',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      name: 'Pokawa',
+      password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
+      email: 'contact@pokawa.fr',
+      phone: '0318343593',
+      facebook: 'https://fr-fr.facebook.com/afpa.hautsdefrance/',
+      twitter: 'https://twitter.com/afpa_hdf',
+      linkedin: 'https://www.linkedin.com/company/afpa/',
+      link: 'https://www.afpa.fr/centre/centre-de-lille-lomme',
+      logo: './uploads/POKAWA.png',
+      about: "Pour l’histoire, c’est durant leur tour du monde en binôme, que Sam & Max ont découvert le Poké, plat traditionnel hawaïen. De retour à Paris, ils décident alors de lancer leur concept en livraison. Pari réussi car le 1er Juillet 2017, ils ouvraient le premier restaurant Pokawa. À mi-chemin entre le chirashi et le ceviche, le Poké bowl c’est le plat traditionnel hawaïen.",
+      address: '33 Rue Mazarine, 75006 Paris',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      name: 'Vendeurs pour Amorino H/F',
+      password: '$2a$10$gP57sSHK8Srp4z6l1tUO/u/lpvF/yXkfqRtGIIPvsoQ0YxphRSERK',
+      email: 'contact@amorino.fr',
+      phone: '0318343553',
+      facebook: 'https://fr-fr.facebook.com/afpa.hautsdefrance/',
+      twitter: 'https://twitter.com/afpa_hdf',
+      linkedin: 'https://www.linkedin.com/company/afpa/',
+      link: 'https://www.afpa.fr/centre/centre-de-lille-lomme',
+      logo: './uploads/AMORINO.png',
+      about: "Amorino est une marque française de glaces italiennes, dont les boutiques franchisées sont installées dans plusieurs pays à travers le monde. Elle appartient à la société CPG et la fabrication est confiée à la société : -18°.",
+      address: '42 Rue Cler, 75007 Paris',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+
   ]);
   },
   down: function(queryInterface, Sequelize) {
