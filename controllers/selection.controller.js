@@ -226,25 +226,35 @@ exports.selection_delete = (req, res) => {
         if (err) {
             res.status(403).send('ERROR: Access denied');
         } else {
-            if (authorizedData.companyUser) {
-                if (authorizedData.companyUser.company_id == req.body.company_id) {
-                    db.Selection.destroy({
-                            where: {
-                                'id': req.params.id
-                            }
-                        })
-                        .then(data => {
-                            res.status(200).res.send('Data successfully deleted');
-                        })
-                        .catch(error => {
-                            res.status(400).send('ERROR: Data not found');
-                        });
-                } else {
-                    res.status(403).send('ERROR: Access denied');
-                }
-            } else {
-                res.status(403).send('ERROR: Access denied');
-            }
+            db.Selection.findOne({
+                    where: {
+                        'id': req.params.id
+                    }
+                })
+                .then(data => {
+                    if (authorizedData.companyUser) {
+                        if (authorizedData.companyUser.company_id == data.company_id) {
+                            db.Selection.destroy({
+                                    where: {
+                                        'id': req.params.id
+                                    }
+                                })
+                                .then(data => {
+                                    res.status(200).res.send('Data successfully deleted');
+                                })
+                                .catch(error => {
+                                    res.status(400).send('ERROR: Data not found');
+                                });
+                        } else {
+                            res.status(403).send('ERROR: Access denied');
+                        }
+                    } else {
+                        res.status(403).send('ERROR: Access denied');
+                    }
+                })
+                .catch(error => {
+                    res.status(400).send('ERROR: Data not found');
+                });
         }
     });
 };
