@@ -243,7 +243,7 @@ exports.selection_delete = (req, res) => {
                                     res.status(200).res.send('Data successfully deleted');
                                 })
                                 .catch(error => {
-                                    res.status(400).send('ERROR: Data not found');
+                                    res.status(419).send('ERROR: Data not found');
                                 });
                         } else {
                             res.status(403).send('ERROR: Access denied');
@@ -253,7 +253,7 @@ exports.selection_delete = (req, res) => {
                     }
                 })
                 .catch(error => {
-                    res.status(400).send('ERROR: Data not found');
+                    res.status(420).send('ERROR: Data not found');
                 });
         }
     });
