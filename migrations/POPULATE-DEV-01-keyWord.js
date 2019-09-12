@@ -165,7 +165,99 @@ module.exports = {
             name: 'Symfony',
             createdAt: new Date(),
             updatedAt: new Date()
-        }]);
+        },
+        {
+            name: 'Accueil',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Polyvalence',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Rédaction',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Créativité',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Commercial',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Administratif',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Sérieux',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Consciencieux',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Management',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Jovial',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Souriant',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Vendeur',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Dynamique',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Autonome',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Ambitieux',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Écologie',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Conseil',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        {
+            name: 'Responsabilité',
+            createdAt: new Date(),
+            updatedAt: new Date()
+        },
+        
+    ]);
     },
     down: function(queryInterface, Sequelize) {
         return queryInterface.bulkDelete('KeyWords', null, {});
