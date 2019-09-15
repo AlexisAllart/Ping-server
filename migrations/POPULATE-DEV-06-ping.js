@@ -76,7 +76,7 @@ module.exports = {
     }, {
       companyUser_id: 6,
       status_id: 1,
-      company_id: 2,
+      company_id: 6,
       offer_id: 6,
       user_id: 2,
       createdAt: new Date(),
@@ -100,7 +100,7 @@ module.exports = {
     }, {
       companyUser_id: 6,
       status_id: 1,
-      company_id: 2,
+      company_id: 6,
       offer_id: 6,
       user_id: 6,
       createdAt: new Date(),
